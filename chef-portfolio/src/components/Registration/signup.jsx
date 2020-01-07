@@ -20,15 +20,15 @@ const SignUp = ({ values, errors, touched, status }) => {
             <Form className='signup'>
                 <h2>Sign Up</h2>
                 <Field 
-                name='firstName'
+                name='first_name'
                 type='text'
                 placeholder='First Name'
-                />{touched.firstName && errors.firstName && (<p>{errors.firstName}</p>)}
+                />{touched.first_name && errors.first_name && (<p>{errors.first_name}</p>)}
                 <Field 
-                name='lastName'
+                name='last_name'
                 type='text'
                 placeholder='Last Name'
-                />{touched.lastName && errors.lastName && (<p>{errors.lastName}</p>)}
+                />{touched.last_name && errors.last_name && (<p>{errors.last_name}</p>)}
                 <Field 
                 name='username'
                 type='text'
@@ -64,23 +64,25 @@ const FormikSignUp = withFormik({
         }
     },
     validationSchema: Yup.object().shape({
-        firstName: Yup.string().required("*Please enter your first name"),
-        lastName: Yup.string().required("*Please enter your last name"),
-        username: Yup.string().required("*Please enter your username"),
-        email: Yup.string().email("*Please provide a valid email address").required("*Please enter your email address"),
-        password: Yup.string().min(6, "*Password must be at least 6 characters").required("*Please enter your password"),
-        location: Yup.string().required("*Please enter your location")
+        first_name: Yup.string().required("Please enter your first name"),
+        last_name: Yup.string().required("Please enter your last name"),
+        username: Yup.string().required("Please enter your username"),
+        email: Yup.string().email("Please provide a valid email address").required("Please enter your email address"),
+        password: Yup.string().min(6, "Password must be at least 6 characters").required("Please enter your password"),
+        location: Yup.string().required("Please enter your location")
     }),
 
     handleSubmit(values, {props, setStatus}) {
         axios
         .post("https://chef-portfolio-backend.herokuapp.com/auth/register", values)
         .then(res=> {
+            console.log(values)
             setStatus(res.data);
             console.log(res.status);
             props.history.push('/auth/login')
         })
         .catch(err => console.log(err.res))
+        
     }
 
 })(SignUp)

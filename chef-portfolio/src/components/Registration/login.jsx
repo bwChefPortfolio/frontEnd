@@ -3,15 +3,12 @@ import { Link } from 'react-router-dom';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios'
-
 const LogIn = ({ values, errors, touched, status }, props) => {
     const [LogForm, setLogForm] = useState([]);
     useEffect(() => {
         status && setLogForm(LogForm =>
             [...LogForm, status]);
     }, [status]);
-
-
     return(
         <div className='registration'>
             <Form /*onSubmit={handleSubmit} */>
@@ -32,7 +29,6 @@ const LogIn = ({ values, errors, touched, status }, props) => {
         </div>
     )
 }
-
 const FormikLogIn = withFormik({
     mapPropsToValues({ username, password }) {
         return {
@@ -57,27 +53,12 @@ const FormikLogIn = withFormik({
             .catch(err => console.log(err.response));
     }
 })(LogIn)
-
 export default FormikLogIn;
-
-
-
-
-
-
-
-
-
-
-
-
 /*const LogIn = ({ values, errors, touched, status }) => {
     const handleSubmit = event => {
        event.preventDefault();
     }
-
 const LogIn = ({values, errors, touched, status}, props) => {
-
     const [credentials, setCredentials] = useState({
       username: 'Lambda School',
       password: 'i<3Lambd4'
@@ -89,7 +70,6 @@ const LogIn = ({values, errors, touched, status}, props) => {
         [e.target.name]: e.target.value
       })
     }
-
     const handleSubmit = e => {
       e.preventDefault();
       axiosWithAuth()
@@ -100,8 +80,6 @@ const LogIn = ({values, errors, touched, status}, props) => {
           })
         .catch(err=> console.log(err))
     }
-
-
     handleSubmit(values, {props, setStatus}) {
         axios
         .post("https://chef-portfolio-backend.herokuapp.com/auth/register", values)
@@ -111,5 +89,4 @@ const LogIn = ({values, errors, touched, status}, props) => {
             props.history.push('/auth/login')
         })
         .catch(err => console.log(err.res))
-
 */
