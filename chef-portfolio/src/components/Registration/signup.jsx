@@ -20,12 +20,12 @@ const SignUp = ({ values, errors, touched, status }) => {
             <Form>
                 <h2>Sign Up</h2>
                 <Field 
-                name='firstName'
+                name='first_name'
                 type='text'
                 placeholder='First Name'
                 />{touched.firstName && errors.firstName && (<p>{errors.firstName}</p>)}
                 <Field 
-                name='lastName'
+                name='last_name'
                 type='text'
                 placeholder='Last Name'
                 />{touched.lastName && errors.lastName && (<p>{errors.lastName}</p>)}
@@ -64,8 +64,8 @@ const FormikSignUp = withFormik({
         }
     },
     validationSchema: Yup.object().shape({
-        firstName: Yup.string().required("Please enter your first name"),
-        lastName: Yup.string().required("Please enter your last name"),
+        first_name: Yup.string().required("Please enter your first name"),
+        last_name: Yup.string().required("Please enter your last name"),
         username: Yup.string().required("Please enter your username"),
         email: Yup.string().email("Please provide a valid email address").required("Please enter your email address"),
         password: Yup.string().min(6, "Password must be at least 6 characters").required("Please enter your password"),
