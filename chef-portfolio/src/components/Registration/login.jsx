@@ -1,16 +1,17 @@
-import React from 'react';
+import React, {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
-
-const LogIn = ({ values, errors, touched, status }) => {
-    const handleSubmit = event => {
-        event.preventDefault();
-    }
-
+import axios from 'axios'
+const LogIn = ({ values, errors, touched, status }, props) => {
+    const [LogForm, setLogForm] = useState([]);
+    useEffect(() => {
+        status && setLogForm(LogForm =>
+            [...LogForm, status]);
+    }, [status]);
     return(
         <div className='registration'>
-            <Form onSubmit={handleSubmit}>
+            <Form /*onSubmit={handleSubmit} */>
                 <h2>Log In</h2>
                 <Field 
                 name='username'
@@ -28,12 +29,28 @@ const LogIn = ({ values, errors, touched, status }) => {
         </div>
     )
 }
-
 const FormikLogIn = withFormik({
+    mapPropsToValues({ username, password }) {
+        return {
+            username: username || "",
+            password: password || "",
+        };
+    },
     validationSchema: Yup.object().shape({
         username: Yup.string().required("Please enter your username"),
         password: Yup.string().required("Please enter your password")
-    })
+    }),
+    handleSubmit(values, { props, setStatus, username }) {
+        axios
+            .post("https://chef-portfolio-backend.herokuapp.com/auth/login", values)
+            .then(res => {
+                setStatus(res.data);
+                console.log(res);
+                localStorage.setItem("token", res.data.token);
+                localStorage.setItem("user_id", res.data.user_id);
+                props.history.push(`/chefs/${username}`)
+            })
+            .catch(err => console.log(err.response));
+    }
 })(LogIn)
-
 export default FormikLogIn;

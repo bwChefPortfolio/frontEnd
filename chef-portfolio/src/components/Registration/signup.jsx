@@ -23,12 +23,12 @@ const SignUp = ({ values, errors, touched, status }) => {
                 name='first_name'
                 type='text'
                 placeholder='First Name'
-                />{touched.firstName && errors.firstName && (<p>{errors.firstName}</p>)}
+                />{touched.first_name && errors.first_name && (<p>{errors.first_name}</p>)}
                 <Field 
                 name='last_name'
                 type='text'
                 placeholder='Last Name'
-                />{touched.lastName && errors.lastName && (<p>{errors.lastName}</p>)}
+                />{touched.last_name && errors.last_name && (<p>{errors.last_name}</p>)}
                 <Field 
                 name='username'
                 type='text'
@@ -76,11 +76,13 @@ const FormikSignUp = withFormik({
         axios
         .post("https://chef-portfolio-backend.herokuapp.com/auth/register", values)
         .then(res=> {
+            console.log(values)
             setStatus(res.data);
             console.log(res.status);
             props.history.push('/auth/login')
         })
         .catch(err => console.log(err.res))
+        
     }
 
 })(SignUp)

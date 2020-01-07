@@ -23,7 +23,7 @@ ReactDOM.render(
         <App />
     </Router>
 </Provider>,
-document.getElementByyId("root")
+document.getElementById("root")
 );
 
 
