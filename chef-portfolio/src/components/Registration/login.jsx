@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
+import './registration.scss';
 
 const LogIn = ({ values, errors, touched, status }) => {
     const handleSubmit = event => {
@@ -10,7 +11,7 @@ const LogIn = ({ values, errors, touched, status }) => {
 
     return(
         <div className='registration'>
-            <Form onSubmit={handleSubmit}>
+            <Form className='login' onSubmit={handleSubmit}>
                 <h2>Log In</h2>
                 <Field 
                 name='username'

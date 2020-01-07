@@ -17,7 +17,7 @@ const SignUp = ({ values, errors, touched, status }) => {
 
     return (
         <div className='registration'>
-            <Form>
+            <Form className='signup'>
                 <h2>Sign Up</h2>
                 <Field 
                 name='firstName'
@@ -49,7 +49,7 @@ const SignUp = ({ values, errors, touched, status }) => {
                 id='location'
                 type='text'
                 placeholder='Location'
-                />
+                />{touched.location && errors.location && (<p>{errors.location}</p>)}
                 <button type='submit'>Sign Up</button>
                 <Link style={{color:'white', textDecoration:'none'}} to='/login'>Already have an account? Log in here</Link>
             </Form>
@@ -64,12 +64,12 @@ const FormikSignUp = withFormik({
         }
     },
     validationSchema: Yup.object().shape({
-        firstName: Yup.string().required("Please enter your first name"),
-        lastName: Yup.string().required("Please enter your last name"),
-        username: Yup.string().required("Please enter your username"),
-        email: Yup.string().email("Please provide a valid email address").required("Please enter your email address"),
-        password: Yup.string().min(6, "Password must be at least 6 characters").required("Please enter your password"),
-        location: Yup.string().required("Please enter your location")
+        firstName: Yup.string().required("*Please enter your first name"),
+        lastName: Yup.string().required("*Please enter your last name"),
+        username: Yup.string().required("*Please enter your username"),
+        email: Yup.string().email("*Please provide a valid email address").required("*Please enter your email address"),
+        password: Yup.string().min(6, "*Password must be at least 6 characters").required("*Please enter your password"),
+        location: Yup.string().required("*Please enter your location")
     }),
 
     handleSubmit(values, {props, setStatus}) {
