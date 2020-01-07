@@ -3,18 +3,6 @@ import { Link } from 'react-router-dom';
 import { withFormik, Form, Field } from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios'
-<<<<<<< HEAD
-=======
-
-const LogIn = ({ values, errors, touched, status }, props) => {
-    const [LogForm, setLogForm] = useState([]);
-    useEffect(() => {
-        status && setLogForm(LogForm =>
-            [...LogForm, status]);
-    }, [status]);
-
->>>>>>> 4237d49c7e35ed0eea3721573cf7c75c18a5c6dd
-
 const LogIn = ({ values, errors, touched, status }, props) => {
     const [LogForm, setLogForm] = useState([]);
     useEffect(() => {
@@ -52,11 +40,7 @@ const FormikLogIn = withFormik({
         username: Yup.string().required("Please enter your username"),
         password: Yup.string().required("Please enter your password")
     }),
-<<<<<<< HEAD
-    handleSubmit(values, { props, setStatus, username }) {
-=======
     handleSubmit(values, { props, setStatus }) {
->>>>>>> 4237d49c7e35ed0eea3721573cf7c75c18a5c6dd
         axios
             .post("https://chef-portfolio-backend.herokuapp.com/auth/login", values)
             .then(res => {
@@ -64,39 +48,17 @@ const FormikLogIn = withFormik({
                 console.log(res);
                 localStorage.setItem("token", res.data.token);
                 localStorage.setItem("user_id", res.data.user_id);
-<<<<<<< HEAD
-                props.history.push(`/chefs/${username}`)
-=======
                 props.history.push(`/chefs/${values.username}`)
->>>>>>> 4237d49c7e35ed0eea3721573cf7c75c18a5c6dd
             })
             .catch(err => console.log(err.response));
     }
 })(LogIn)
-<<<<<<< HEAD
 export default FormikLogIn;
-=======
-
-export default FormikLogIn;
-
-
-
-
-
-
-
-
-
-
-
-
 /*const LogIn = ({ values, errors, touched, status }) => {
     const handleSubmit = event => {
        event.preventDefault();
     }
-
 const LogIn = ({values, errors, touched, status}, props) => {
-
     const [credentials, setCredentials] = useState({
       username: 'Lambda School',
       password: 'i<3Lambd4'
@@ -108,7 +70,6 @@ const LogIn = ({values, errors, touched, status}, props) => {
         [e.target.name]: e.target.value
       })
     }
-
     const handleSubmit = e => {
       e.preventDefault();
       axiosWithAuth()
@@ -119,8 +80,6 @@ const LogIn = ({values, errors, touched, status}, props) => {
           })
         .catch(err=> console.log(err))
     }
-
-
     handleSubmit(values, {props, setStatus}) {
         axios
         .post("https://chef-portfolio-backend.herokuapp.com/auth/register", values)
@@ -130,6 +89,4 @@ const LogIn = ({values, errors, touched, status}, props) => {
             props.history.push('/auth/login')
         })
         .catch(err => console.log(err.res))
-
 */
->>>>>>> 4237d49c7e35ed0eea3721573cf7c75c18a5c6dd
