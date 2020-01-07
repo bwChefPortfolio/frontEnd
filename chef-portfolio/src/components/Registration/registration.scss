@@ -7,6 +7,10 @@
     background-repeat: no-repeat;
 }
 
+h2 {
+    color: white;
+}
+
 .signup {
     display: flex;
     flex-direction: column;
@@ -16,9 +20,35 @@
     margin: 5% auto;
     padding: 1% 2%;
     background-color: rgba(155, 136, 128, 0.85);
-    
 
-    h2 {
-        color: white;
+    input {
+        height: 8%;
+        padding: 2%;
+        box-sizing: border-box;
+
+        &:focus {
+            border: 3px solid #555;
+        }
+    }
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    justify-content: space-between;
+    height: 30%;
+    margin: 5% auto;
+    padding: 1% 2%;
+    background-color: rgba(155, 136, 128, 0.85);
+
+    input {
+        height: 15%;
+        padding: 2%;
+        box-sizing: border-box;
+
+        &:focus {
+            border: 3px solid #555;
+        }
     }
 }

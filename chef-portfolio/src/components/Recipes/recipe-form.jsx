@@ -16,8 +16,9 @@ const RecipeForm = ({ values, errors, touched, status }) => {
 
     return (
         <div className='recipe-container'>
-            <img />
+            <img src='https://images.unsplash.com/photo-1551987840-f62d9c74ae78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1176&q=80' />
             <Form className='recipe-form'>
+            
                 <div className='labels'>
                     <label htmlFor='title'>Recipe Name: </label>
                     <label htmlFor='type'>Meal Type: </label>

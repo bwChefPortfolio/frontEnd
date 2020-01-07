@@ -3,7 +3,7 @@ textarea, input { outline: none; }
 .recipe-container {
     display: flex;
     align-items: center;
-    background-color: #c4c4c4;
+    background-color: rgba(196, 196, 196, 0.8);
     margin: 5%;
 
     img {
@@ -28,12 +28,13 @@ textarea, input { outline: none; }
     }
 
     .field {
-        margin: 2% 0 4% 2%;
+        margin: 2.8% 0 8% 2%;
         width: 100%;
     }
 
     label {
         font-size: 2rem;
+        margin-bottom: 10%;
     }
 
     .title,
@@ -60,6 +61,7 @@ textarea, input { outline: none; }
         padding: 0;
         background-color: inherit;
         font-size: 2rem;
+        margin-top: 5%;
 
         &:hover {
             color: white;
@@ -68,6 +70,7 @@ textarea, input { outline: none; }
     }
 
     .error {
-        margin: 0 2%;
+        margin: 1% 2%;
     }
 }
+
