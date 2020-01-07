@@ -46,9 +46,10 @@ const SignUp = ({ values, errors, touched, status }) => {
                 />{touched.password && errors.password && (<p>{errors.password}</p>)}
                 <Field 
                 name='location'
+                id='location'
                 type='text'
                 placeholder='Location'
-                />{touched.location && errors.location && (<p>{errors.location}</p>)}
+                />
                 <button type='submit'>Sign Up</button>
                 <Link style={{color:'white', textDecoration:'none'}} to='/login'>Already have an account? Log in here</Link>
             </Form>
@@ -73,11 +74,11 @@ const FormikSignUp = withFormik({
 
     handleSubmit(values, {props, setStatus}) {
         axios
-        .post("https://chef-portfolio-backend.herokuapp.com//auth/register", values)
+        .post("https://chef-portfolio-backend.herokuapp.com/auth/register", values)
         .then(res=> {
             setStatus(res.data);
             console.log(res.status);
-            props.history.push('/login')
+            props.history.push('/auth/login')
         })
         .catch(err => console.log(err.res))
     }
