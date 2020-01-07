@@ -10,7 +10,7 @@ const LogIn = ({ values, errors, touched, status }) => {
 
     return(
         <div className='registration'>
-            <Form onSubmit={handleSubmit}>
+            <Form className='login' onSubmit={handleSubmit}>
                 <h2>Log In</h2>
                 <Field 
                 name='username'

@@ -1,0 +1,73 @@
+textarea, input { outline: none; }
+
+.recipe-container {
+    display: flex;
+    align-items: center;
+    background-color: #c4c4c4;
+    margin: 5%;
+
+    img {
+        width: 500px;
+        margin: 5%;
+    }
+}
+
+.recipe-form {
+    display: flex;
+    padding: 2%;
+    width: 85vw;
+
+    .labels {
+        display: flex;
+        flex-direction: column;
+        
+    }
+
+    .fields {
+        width: 20vw;
+    }
+
+    .field {
+        margin: 2% 0 4% 2%;
+        width: 100%;
+    }
+
+    label {
+        font-size: 2rem;
+    }
+
+    .title,
+    .ingredients,
+    .recipe {
+        width: 100%;
+        padding: 0.7%;
+        box-sizing: border-box;
+
+        &:focus {
+            border: 3px solid #555;
+        }
+    }
+
+    .select {
+        width: 25%;
+        padding: 0.7%;
+        box-sizing: border-box;
+    }
+
+    button {
+        width: 50%;
+        border: 0;
+        padding: 0;
+        background-color: inherit;
+        font-size: 2rem;
+
+        &:hover {
+            color: white;
+            cursor: pointer;
+        }
+    }
+
+    .error {
+        margin: 0 2%;
+    }
+}

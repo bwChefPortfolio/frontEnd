@@ -11,7 +11,7 @@ const SignUp = ({ values, errors, touched, status }) => {
 
     return (
         <div className='registration'>
-            <Form onSubmit={handleSubmit}>
+            <Form className='signup' onSubmit={handleSubmit}>
                 <h2>Sign Up</h2>
                 <Field 
                 name='firstName'

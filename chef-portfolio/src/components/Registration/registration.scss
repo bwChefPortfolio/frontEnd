@@ -7,7 +7,7 @@
     background-repeat: no-repeat;
 }
 
-form {
+.signup {
     display: flex;
     flex-direction: column;
     width: 300px;
@@ -15,7 +15,8 @@ form {
     height: 50%;
     margin: 5% auto;
     padding: 1% 2%;
-    background-color: #9b8880;
+    background-color: rgba(155, 136, 128, 0.85);
+    
 
     h2 {
         color: white;
