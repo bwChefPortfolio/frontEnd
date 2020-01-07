@@ -1,13 +1,19 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import './registration.scss';
-import { withFormik, Form, Field } from 'formik';
+import { withFormik, Form, Field} from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
 
 const SignUp = ({ values, errors, touched, status }) => {
-    const handleSubmit = event => {
-        event.preventDefault();
-    }
+
+    const [users, setUsers] = useState([]);
+
+    useEffect(() => {
+        status && setUsers(users => [...users, status]);
+    }, [status]);
+
+    
 
     return (
         <div className='registration'>
@@ -63,7 +69,19 @@ const FormikSignUp = withFormik({
         email: Yup.string().email("Please provide a valid email address").required("Please enter your email address"),
         password: Yup.string().min(6, "Password must be at least 6 characters").required("Please enter your password"),
         location: Yup.string().required("Please enter your location")
-    })
+    }),
+
+        handleSubmit = (values, {props, setStatus}) => {
+        axios
+        .post("https://build-week-how-to.herokuapp.com/api/auth/register", values)
+        .then(res=> {
+            setStatus(res.data);
+            console.log(res.status);
+            props.history.push('/login')
+        })
+        .catch(err => console.log(err.res))
+    }
+
 })(SignUp)
 
 export default FormikSignUp;
