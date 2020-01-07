@@ -17,7 +17,7 @@ const SignUp = ({ values, errors, touched, status }) => {
 
     return (
         <div className='registration'>
-            <Form onSubmit={handleSubmit}>
+            <Form>
                 <h2>Sign Up</h2>
                 <Field 
                 name='firstName'
@@ -71,9 +71,9 @@ const FormikSignUp = withFormik({
         location: Yup.string().required("Please enter your location")
     }),
 
-        handleSubmit = (values, {props, setStatus}) => {
+    handleSubmit(values, {props, setStatus}) {
         axios
-        .post("https://build-week-how-to.herokuapp.com/api/auth/register", values)
+        .post("https://chef-portfolio-backend.herokuapp.com//auth/register", values)
         .then(res=> {
             setStatus(res.data);
             console.log(res.status);
