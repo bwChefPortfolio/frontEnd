@@ -17,7 +17,7 @@ const SignUp = ({ values, errors, touched, status }) => {
 
     return (
         <div className='registration'>
-            <Form>
+            <Form className='signup'>
                 <h2>Sign Up</h2>
                 <Field 
                 name='first_name'
@@ -49,7 +49,7 @@ const SignUp = ({ values, errors, touched, status }) => {
                 id='location'
                 type='text'
                 placeholder='Location'
-                />
+                />{touched.location && errors.location && (<p>{errors.location}</p>)}
                 <button type='submit'>Sign Up</button>
                 <Link style={{color:'white', textDecoration:'none'}} to='/login'>Already have an account? Log in here</Link>
             </Form>
