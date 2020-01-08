@@ -14,7 +14,7 @@ h2 {
 .signup {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 350px;
     justify-content: space-between;
     height: 50%;
     margin: 5% auto;
@@ -26,13 +26,12 @@ h2 {
         height: 8%;
         padding: 2%;
         box-sizing: border-box;
-        border: none;
-        border-bottom: 1px solid #ccc;
+        border: 1px solid #ccc;
         background-color:  inherit;
 
         &:focus{
-            transition: 0.4s;
-            border-bottom: 3px solid white;
+            transition: 0.2s;
+            border: 3px solid white;
         }
     }
 }
@@ -40,7 +39,7 @@ h2 {
 .login {
     display: flex;
     flex-direction: column;
-    width: 300px;
+    width: 350px;
     justify-content: space-between;
     height: 30%;
     margin: 5% auto;
@@ -51,9 +50,13 @@ h2 {
         height: 15%;
         padding: 2%;
         box-sizing: border-box;
-        border: none;
+        border: 1px solid #ccc;
         background-color:  inherit;
-        border-bottom: 3px solid white;
+
+        &:focus{
+            transition: 0.2s;
+            border: 3px solid white;
+        }
     }
 }
 
