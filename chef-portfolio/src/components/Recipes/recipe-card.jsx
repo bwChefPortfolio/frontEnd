@@ -4,9 +4,10 @@ import './recipe-card.scss';
 
 
 
-// const RecipeCard = () => {
-//     const [isOpen, setIsOpen] = useState(false);
-//     const toggle = () => setIsOpen(!isOpen);
+
+const RecipeCard = (props) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen);
 
 //     // const [popoverOpen, setPopoverOpen] = useState(false);
 //     // const toggle = () => setPopoverOpen(!popoverOpen);
@@ -38,6 +39,7 @@ const RecipeCard = (props) => {
 
     return (
         <div className='recipe-card'>
+
             <Card>
                 <CardImg src={props.image_url} top width='20%' />
                 <CardBody>
@@ -55,6 +57,7 @@ const RecipeCard = (props) => {
                     </Modal>
                 </CardBody>
             </Card>
+
         </div>
     )
 }
