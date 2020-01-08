@@ -34,14 +34,14 @@ const RecipeForm = ({ values, errors, touched, status }) => {
                         />{touched.title && errors.title && (<p className='error'>{errors.title}</p>)}
                     </div>
                     <div className='field'>
-                        <Field as='select' className='select' id='type' name='type'>
+                        <Field as='select' className='select' id='meal_type' name='meal_type'>
                         <option value='none' selected disabled hidden>Choose an option</option>
                         <option value='Breakfast'>Breakfast</option>
                         <option value='Lunch'>Lunch</option>
                         <option value='Dinner'>Dinner</option>
                         <option value='Snacks'>Snacks</option>
                         <option value='Dessert'>Dessert</option>
-                        </Field>{touched.type && errors.type && (<p className='error'>{errors.type}</p>)}
+                        </Field>{touched.meal_type && errors.meal_type && (<p className='error'>{errors.meal_type}</p>)}
                     </div>
                     <div className='field'>
                         
@@ -53,11 +53,11 @@ const RecipeForm = ({ values, errors, touched, status }) => {
                         </div>
                     <div className='field'>
                         
-                        <Field className='recipe'
-                        id='recipe'
-                        name='recipe'
+                        <Field className='directions'
+                        id='directions'
+                        name='directions'
                         type='text'
-                        />{touched.recipe && errors.recipe && (<p className='error'>{errors.recipe}</p>)}
+                        />{touched.directions && errors.directions && (<p className='error'>{errors.directions}</p>)}
                     </div>
                     <button type='submit'>Add Recipe</button>
                 </div>
@@ -80,16 +80,16 @@ const FormikRecipeForm = withFormik({
     mapPropsToValues(props) {
         return {
             title: props.title || "",
-            type: props.type,
+            meal_type: props.type,
             ingredients: props.ingredients || "",
-            recipe: props.recipe || ""
+            directions: props.directions || ""
         }
     },
     validationSchema: Yup.object().shape({
         title: Yup.string().required("*Please add a name to your dish"),
-        type: Yup.string().oneOf(["Breakfast", "Lunch", "Dinner", "Snacks", "Dessert"]).required("*Please select a meal type"),
+        meal_type: Yup.string().oneOf(["Breakfast", "Lunch", "Dinner", "Snacks", "Dessert"]).required("*Please select a meal type"),
         ingredients: Yup.string().required("*Please add at least one ingredient"),
-        recipe: Yup.string().required("*Please provide a recipe for your dish")
+        directions: Yup.string().required("*Please provide a recipe for your dish")
     }),
     handleSubmit(values, {setStatus, resetForm}) {
         console.log("submitting", values);
