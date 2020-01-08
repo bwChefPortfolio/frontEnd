@@ -40,7 +40,7 @@ export const getChef = id => dispatch => {
 
     axiosWithAuth()
     .get(
-        //insert backend link here
+        //insert backend link here for getting chef info
     )
     .then(res => {
         dispatch({type: FETCHING_CHEF_SUCCESS, payload: res.data[0]});
