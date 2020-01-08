@@ -11,7 +11,7 @@ const LogIn = ({ values, errors, touched, status }, props) => {
     }, [status]);
     return(
         <div className='registration'>
-            <Form /*onSubmit={handleSubmit} */>
+            <Form >
                 <h2>Log In</h2>
                 <Field 
                 name='username'
@@ -54,39 +54,3 @@ const FormikLogIn = withFormik({
     }
 })(LogIn)
 export default FormikLogIn;
-/*const LogIn = ({ values, errors, touched, status }) => {
-    const handleSubmit = event => {
-       event.preventDefault();
-    }
-const LogIn = ({values, errors, touched, status}, props) => {
-    const [credentials, setCredentials] = useState({
-      username: 'Lambda School',
-      password: 'i<3Lambd4'
-   });
-  
-    const handleChange = e => {
-      setCredentials({
-        ...credentials,
-        [e.target.name]: e.target.value
-      })
-    }
-    const handleSubmit = e => {
-      e.preventDefault();
-      axiosWithAuth()
-        .post('/auth/login', credentials)
-        .then(res => {
-          localStorage.setItem('token', res.data.payload);
-          props.history.push('/Portfolio')
-          })
-        .catch(err=> console.log(err))
-    }
-    handleSubmit(values, {props, setStatus}) {
-        axios
-        .post("https://chef-portfolio-backend.herokuapp.com/auth/register", values)
-        .then(res=> {
-            setStatus(res.data);
-            console.log(res.status);
-            props.history.push('/auth/login')
-        })
-        .catch(err => console.log(err.res))
-*/
