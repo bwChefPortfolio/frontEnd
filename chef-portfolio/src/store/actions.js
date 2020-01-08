@@ -39,9 +39,7 @@ export const getChef = id => dispatch => {
     dispatch({type: FETCHING_CHEF});
 
     axiosWithAuth()
-    .get(
-        //insert backend link here for getting chef info
-    )
+    .get(`https://chef-portfolio-backend.herokuapp.com/home/`)
     .then(res => {
         dispatch({type: FETCHING_CHEF_SUCCESS, payload: res.data[0]});
 

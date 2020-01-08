@@ -20,7 +20,7 @@ function App() {
         <Route path='/profile' component={Portfolio} />
         <Route path='/login' component={LogIn} />
         <Route path='/signup' component={SignUp} />
-        <PrivateRoute path='/chefdashboard' component={ChefDashboard} />
+        <PrivateRoute path='/chefs' component={ChefDashboard} />
       </Switch>
     </div>
   );

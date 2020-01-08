@@ -32,9 +32,10 @@ import React, {useEffect} from 'react';
 // export default connect(mapStateToProps, {getChef})(ChefDashboard)
 
 const ChefDashboard = () => {
-    console.log('On the chef dashboard')
     return (
-        <h1>This is the Chef Dashboard</h1>
+        <div>
+            <h1>Chef Dashboard</h1>
+        </div>
     )
 }
 
