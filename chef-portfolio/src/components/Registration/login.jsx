@@ -17,12 +17,12 @@ const LogIn = ({ values, errors, touched, status }, props) => {
                 name='username'
                 type='text'
                 placeholder='Username'
-                />{touched.username && errors.username && (<p>{errors.username}</p>)}
+                />{touched.username && errors.username && (<p className='error'>{errors.username}</p>)}
                 <Field 
                 name='password'
                 type='password'
                 placeholder='Password'
-                />{touched.password && errors.password && (<p>{errors.password}</p>)}
+                />{touched.password && errors.password && (<p className='error'>{errors.password}</p>)}
                 <button type='submit'>Log In</button>
                 <Link style={{color:'white', textDecoration:'none'}} className='link' to='/signup'>Don't have an account? Register here</Link>
             </Form>
@@ -37,8 +37,8 @@ const FormikLogIn = withFormik({
         };
     },
     validationSchema: Yup.object().shape({
-        username: Yup.string().required("Please enter your username"),
-        password: Yup.string().required("Please enter your password")
+        username: Yup.string().required("*Please enter your username"),
+        password: Yup.string().required("*Please enter your password")
     }),
     handleSubmit(values, { props, setStatus }) {
         axios
