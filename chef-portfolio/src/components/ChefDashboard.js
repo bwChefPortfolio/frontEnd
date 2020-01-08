@@ -1,32 +1,41 @@
 import React, {useEffect} from 'react';
-import {Link} from 'react-router-dom';
-import {connect} from 'react-redux';
-import {getChef} from '../store/actions';
+// import {Link} from 'react-router-dom';
+// import {connect} from 'react-redux';
+// import {getChef} from '../store/actions';
 
-const ChefDashboard = props => {
-    const userId = localStorage.getItem("user_id");
+// const ChefDashboard = props => {
+//     const userId = localStorage.getItem("user_id");
 
-    useEffect(() => {
-        props.getChef(userId);
-    }, []);
+//     useEffect(() => {
+//         props.getChef(userId);
+//     }, []);
 
-    console.log(props);
+//     console.log(props);
 
+//     return (
+//         <div>
+//             <h2><span>{props.chefs.first_name}</span><span>{props.chefs.last_name}</span></h2>
+//             <p>{props.chefs.email}</p>
+//             <p>{props.chefs.location}</p>
+//         </div>
+
+//     )
+// }
+
+// const mapStateToProps = state => {
+//     return {
+//         chefs: state.chefs,
+//         isFetching: state.isFetching
+//     };
+// };
+
+// export default connect(mapStateToProps, {getChef})(ChefDashboard)
+
+const ChefDashboard = () => {
+    console.log('On the chef dashboard')
     return (
-        <div>
-            <h2><span>{props.chefs.first_name}</span><span>{props.chefs.last_name}</span></h2>
-            <p>{props.chefs.email}</p>
-            <p>{props.chefs.location}</p>
-        </div>
-
+        <h1>This is the Chef Dashboard</h1>
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        chefs: state.chefs,
-        isFetching: state.isFetching
-    };
-};
-
-export default connect(mapStateToProps, {getChef})(ChefDashboard)
+export default ChefDashboard;

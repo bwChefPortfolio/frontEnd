@@ -11,11 +11,7 @@ const LogIn = ({ values, errors, touched, status }, props) => {
     }, [status]);
     return(
         <div className='registration'>
-<<<<<<< HEAD
-            <Form >
-=======
             <Form className='login'>
->>>>>>> 85bb172ec381a298e8d43a166d543a493e6b228e
                 <h2>Log In</h2>
                 <Field 
                 name='username'
