@@ -14,9 +14,9 @@ const ChefDashboard = props => {
 
     return (
         <div>
-            <h2><span>{props.chefInfo.first_name}</span><span>{props.chefInfo.last_name}</span></h2>
-            <p>{props.chefInfo.email}</p>
-            <p>{props.chefInfo.location}</p>
+            <h2><span>{props.chefs.first_name}</span><span>{props.chefs.last_name}</span></h2>
+            <p>{props.chefs.email}</p>
+            <p>{props.chefs.location}</p>
         </div>
 
     )
@@ -24,7 +24,7 @@ const ChefDashboard = props => {
 
 const mapStateToProps = state => {
     return {
-        chefInfo: state.ChefInfo,
+        chefs: state.chefs,
         isFetching: state.isFetching
     };
 };
