@@ -10,7 +10,7 @@ export default function HomeDashboard() {
     useEffect(() => {
         axios.get(`https://chef-portfolio-backend.herokuapp.com/home`)
         .then(response => {
-            const recipeInfo = response.data.results;
+            const recipeInfo = response.data;
             console.log('returning recipe info', response)
             setRecipes(recipeInfo);
         })
@@ -18,12 +18,12 @@ export default function HomeDashboard() {
             console.log('error!')
         })
     }, [])
-
+        console.log(recipes)
     return (
         <div>
             <h2>Guest Dashboard</h2>
             <div>
-                {gotData.map(data => {
+                {recipes.map(data => {
                     return (
                         <RecipeCard
                         key={data.id}
