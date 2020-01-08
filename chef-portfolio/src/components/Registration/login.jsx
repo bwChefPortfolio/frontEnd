@@ -18,6 +18,7 @@ const LogIn = ({ values, errors, touched, status }, props) => {
                 type='text'
                 placeholder='Username'
                 />{touched.username && errors.username && (<p className='error'>{errors.username}</p>)}
+                <span className='focus-border'></span>
                 <Field 
                 name='password'
                 type='password'
