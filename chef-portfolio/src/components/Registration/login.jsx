@@ -11,18 +11,23 @@ const LogIn = ({ values, errors, touched, status }, props) => {
     }, [status]);
     return(
         <div className='registration'>
+<<<<<<< HEAD
             <Form >
+=======
+            <Form className='login'>
+>>>>>>> 85bb172ec381a298e8d43a166d543a493e6b228e
                 <h2>Log In</h2>
                 <Field 
                 name='username'
                 type='text'
                 placeholder='Username'
-                />{touched.username && errors.username && (<p>{errors.username}</p>)}
+                />{touched.username && errors.username && (<p className='error'>{errors.username}</p>)}
+                <span className='focus-border'></span>
                 <Field 
                 name='password'
                 type='password'
                 placeholder='Password'
-                />{touched.password && errors.password && (<p>{errors.password}</p>)}
+                />{touched.password && errors.password && (<p className='error'>{errors.password}</p>)}
                 <button type='submit'>Log In</button>
                 <Link style={{color:'white', textDecoration:'none'}} className='link' to='/signup'>Don't have an account? Register here</Link>
             </Form>
@@ -37,8 +42,8 @@ const FormikLogIn = withFormik({
         };
     },
     validationSchema: Yup.object().shape({
-        username: Yup.string().required("Please enter your username"),
-        password: Yup.string().required("Please enter your password")
+        username: Yup.string().required("*Please enter your username"),
+        password: Yup.string().required("*Please enter your password")
     }),
     handleSubmit(values, { props, setStatus }) {
         axios

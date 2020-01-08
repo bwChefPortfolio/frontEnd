@@ -20,14 +20,19 @@ h2 {
     margin: 5% auto;
     padding: 1% 2%;
     background-color: rgba(155, 136, 128, 0.85);
+    
 
     input {
         height: 8%;
         padding: 2%;
         box-sizing: border-box;
+        border: none;
+        border-bottom: 1px solid #ccc;
+        background-color:  inherit;
 
-        &:focus {
-            border: 3px solid #555;
+        &:focus{
+            transition: 0.4s;
+            border-bottom: 3px solid white;
         }
     }
 }
@@ -46,9 +51,16 @@ h2 {
         height: 15%;
         padding: 2%;
         box-sizing: border-box;
-
-        &:focus {
-            border: 3px solid #555;
-        }
+        border: none;
+        background-color:  inherit;
+        border-bottom: 3px solid white;
     }
+}
+
+.error {
+    margin: 1% 2%;
+}
+
+::placeholder {
+    color: white;
 }

@@ -39,7 +39,7 @@ textarea, input { outline: none; }
 
     .title,
     .ingredients,
-    .recipe {
+    .directions {
         width: 100%;
         padding: 0.7%;
         box-sizing: border-box;
@@ -50,7 +50,7 @@ textarea, input { outline: none; }
     }
 
     .select {
-        width: 35%;
+        width: 42%;
         padding: 0.7%;
         box-sizing: border-box;
     }
@@ -71,6 +71,7 @@ textarea, input { outline: none; }
 
     .error {
         margin: 1% 2%;
+        color: #bb0000
     }
 }
 
