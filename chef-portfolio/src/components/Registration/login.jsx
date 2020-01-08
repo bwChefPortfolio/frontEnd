@@ -11,7 +11,7 @@ const LogIn = ({ values, errors, touched, status }, props) => {
     }, [status]);
     return(
         <div className='registration'>
-            <Form /*onSubmit={handleSubmit} */>
+            <Form className='login'>
                 <h2>Log In</h2>
                 <Field 
                 name='username'
