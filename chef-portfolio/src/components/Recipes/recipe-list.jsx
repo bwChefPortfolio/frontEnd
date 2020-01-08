@@ -34,14 +34,6 @@ const RecipeList = () => {
                     />
                 )
             })}
-            
-            {/* <RecipeCard />
-            <RecipeCard />
-            <RecipeCard />
-            <RecipeCard />
-            <RecipeCard />
-            <RecipeCard />
-            <RecipeCard /> */}
         </CardDeck>
     )
 }

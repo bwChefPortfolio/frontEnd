@@ -5,9 +5,9 @@ import './recipe-card.scss';
 
 
 
-const RecipeCard = (props) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const toggle = () => setIsOpen(!isOpen);
+// const RecipeCard = (props) => {
+//     const [isOpen, setIsOpen] = useState(false);
+//     const toggle = () => setIsOpen(!isOpen);
 
 //     // const [popoverOpen, setPopoverOpen] = useState(false);
 //     // const toggle = () => setPopoverOpen(!popoverOpen);
@@ -41,11 +41,15 @@ const RecipeCard = (props) => {
         <div className='recipe-card'>
 
             <Card>
+                <div className='image-container'>
                 <CardImg src={props.image_url} top width='20%' />
+                </div>
                 <CardBody>
                     <CardTitle>{props.title}</CardTitle>
-                    <CardSubtitle>{props.chef_id}</CardSubtitle>
-                    <Button onClick={toggle}>View Recipe</Button>
+                    <CardSubtitle></CardSubtitle>
+                    <div className='middle'>
+                        <Button onClick={toggle}>View Recipe</Button>
+                    </div>
                     <Modal isOpen={modal} toggle={toggle}>
                         <ModalHeader>{props.title}<p>Chef Name</p></ModalHeader>
                         <CardImg src={props.image_url} top width='20%'/>

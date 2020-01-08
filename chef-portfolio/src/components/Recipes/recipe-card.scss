@@ -1,20 +1,44 @@
+$phone: 500px;
+$computer: 900px;
+
 .recipe-card {
-    width: 12%;
-    margin: 1%;
+    width: 20%;
+    margin: 2.5%;
+
+    @media (max-width: $phone) {
+        width: 80%;
+        margin: 0;
+    }
 }
 
 .card {
     width: 100%;
     overflow: hidden;
-     margin: 10% 20%;
+    margin: 10% 20%;
 
-     button {
+    @media (max-width: $phone) {
+        margin: 12.4%;
+    }
+    
+
+    &:hover .middle {
+        opacity: 1;
+    }
+
+    &:hover img {
+        opacity: 0.3;
+        transition: 0.5s ease;
+    }
+
+    button {
         width: 100%;
         margin: 5% 0;
     }
 
-    img {
-        max-height: 19vh;
+    .card-title {
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: bold;
     }
     
 }
@@ -22,6 +46,24 @@
 p {
     font-size: 1rem;
     font-weight: normal;
+}
+
+.image-container {
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.middle {
+
+    @media (min-width: $computer) {
+    transition: .3s ease;
+    opacity: 0;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%)
+    }
 }
 
 
