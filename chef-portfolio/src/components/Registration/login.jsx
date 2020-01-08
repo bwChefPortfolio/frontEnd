@@ -48,46 +48,10 @@ const FormikLogIn = withFormik({
                 setStatus(res.data);
                 console.log(res);
                 localStorage.setItem("token", res.data.token);
-                localStorage.setItem("user_id", res.data.user_id);
+                localStorage.setItem("id", res.data.id);
                 props.history.push(`/chefs/${values.username}`)
             })
             .catch(err => console.log(err.response));
     }
 })(LogIn)
 export default FormikLogIn;
-/*const LogIn = ({ values, errors, touched, status }) => {
-    const handleSubmit = event => {
-       event.preventDefault();
-    }
-const LogIn = ({values, errors, touched, status}, props) => {
-    const [credentials, setCredentials] = useState({
-      username: 'Lambda School',
-      password: 'i<3Lambd4'
-   });
-  
-    const handleChange = e => {
-      setCredentials({
-        ...credentials,
-        [e.target.name]: e.target.value
-      })
-    }
-    const handleSubmit = e => {
-      e.preventDefault();
-      axiosWithAuth()
-        .post('/auth/login', credentials)
-        .then(res => {
-          localStorage.setItem('token', res.data.payload);
-          props.history.push('/Portfolio')
-          })
-        .catch(err=> console.log(err))
-    }
-    handleSubmit(values, {props, setStatus}) {
-        axios
-        .post("https://chef-portfolio-backend.herokuapp.com/auth/register", values)
-        .then(res=> {
-            setStatus(res.data);
-            console.log(res.status);
-            props.history.push('/auth/login')
-        })
-        .catch(err => console.log(err.res))
-*/

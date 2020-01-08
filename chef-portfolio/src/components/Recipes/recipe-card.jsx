@@ -4,7 +4,7 @@ import './recipe-card.scss';
 
 
 
-const RecipeCard = () => {
+const RecipeCard = (props) => {
     const [isOpen, setIsOpen] = useState(false);
     const toggle = () => setIsOpen(!isOpen);
 
@@ -17,8 +17,8 @@ const RecipeCard = () => {
                 <Card class="collapse" id="collapseExample">
                     <CardImg src='https://images.unsplash.com/photo-1551987840-f62d9c74ae78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1176&q=80' top width='20%'/>
                     <CardBody>
-                        <CardTitle>Borger</CardTitle>
-                        <CardSubtitle>Chef Name</CardSubtitle>
+                        <CardTitle>{props.title}</CardTitle>
+                        <CardSubtitle></CardSubtitle>
                         <Button onClick={toggle} style={{ marginBottom: '1rem' }}>View Recipe</Button>
                         {/* <Button id='Popover1' type='button'>View Recipe</Button> */}
                     <Collapse isOpen={isOpen}>

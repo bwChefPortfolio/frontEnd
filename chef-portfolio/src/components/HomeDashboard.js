@@ -1,36 +1,42 @@
-import React, {useEffect} from 'react';
-import {connect} from 'react-redux';
+import React, {useState, useEffect} from 'react';
+import axios from 'axios';
+import RecipeCard from './Recipes/recipe-card';
 
-import {fetchRecipes} from '../store/actions';
 
-import RecipeCard from './RecipeCard';
+export default function HomeDashboard() {
+    const [recipes, setRecipes] = useState([])
+    const [gotData, changeData] = useState([])
 
-const HomeDashboard = ({fetchRecipes, recipes, error, isFetching}) => {
     useEffect(() => {
-        fetchRecipes();
-    }, [fetchRecipes])
+        axios.get(`https://chef-portfolio-backend.herokuapp.com/home`)
+        .then(response => {
+            const recipeInfo = response.data.results;
+            console.log('returning recipe info', response)
+            setRecipes(recipeInfo);
+        })
+        .catch(error => {
+            console.log('error!')
+        })
+    }, [])
 
-    console.log(recipes);
-
-    if (isFetching) {
-        return <h2>Loading Recipes...</h2>
-    }
     return (
         <div>
-            {error && <p>{error}</p>}
-            {recipes.map(recipe => (
-                <RecipeCard recipe={recipe}/>
-            ))}
+            <h2>Guest Dashboard</h2>
+            <div>
+                {gotData.map(data => {
+                    return (
+                        <RecipeCard
+                        key={data.id}
+                        title={data.title}
+                        meal={data.meal_type}
+                        image={data.image_url}
+                        ingredients={data.ingredients}
+                        directions={data.directions}
+                        chefId={data.chef_id}
+                        />
+                    )
+                })}
+            </div>
         </div>
-    );
+    )
 }
-
-const mapStateToProps = state => {
-    return {
-        recipes: state.recipes,
-        isFetching: state.isFetching,
-        error: state.error
-    };
-};
-
-export default connect (mapStateToProps, {fetchRecipes})(HomeDashboard);

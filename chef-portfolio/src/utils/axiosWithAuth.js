@@ -5,7 +5,7 @@ const token = localStorage.getItem('token');
 const axiosWithAuth = () => {
     
     return axios.create({
-        baseURL: 'http://localhost:5000/api',
+        baseURL: 'https://chef-portfolio-backend.herokuapp.com/',
         headers: {
             Authorization: token
         }
