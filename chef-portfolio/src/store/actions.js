@@ -49,3 +49,26 @@ export const getChef = id => dispatch => {
         dispatch({type: FETCHING_CHEF_FAILURE, payload: err.response})
     })
 };
+
+//Add a recipe
+
+export const ADD_RECIPE = "ADD_RECIPE";
+export const ADD_RECIPE_SUCCESS= "ADD_RECIPE_SUCCESS";
+export const ADD_RECIPE_FAILURE= "ADD_RECIPE_FAILURE";
+
+export const addRecipe = newRecipe => dispatch => {
+    dispatch({ type: ADD_RECIPE, payload: newRecipe});
+    console.log(newRecipe);
+    axiosWithAuth()
+    .post(
+        // post to backend point for adding new recipe
+    )
+    .then(res => {
+        dispatch({ type: ADD_RECIPE_SUCCESS});
+        console.log(res)
+    })
+    .catch(err => {
+        dispatch({type: ADD_RECIPE_FAILURE, payload: err.response});
+        console.log('error')
+    });
+};
