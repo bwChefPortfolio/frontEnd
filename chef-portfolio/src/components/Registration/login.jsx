@@ -42,6 +42,7 @@ const FormikLogIn = withFormik({
         password: Yup.string().required("*Please enter your password")
     }),
     handleSubmit(values, { props, setStatus }) {
+        
         axios
             .post("https://chef-portfolio-backend.herokuapp.com/auth/login", values)
             .then(res => {
