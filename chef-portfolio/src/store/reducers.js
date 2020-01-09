@@ -1,4 +1,4 @@
-import {START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE, ADD_RECIPE, ADD_RECIPE_SUCCESS, ADD_RECIPE_FAILURE} from './actions';
+import {START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE, ADD_RECIPE, ADD_RECIPE_SUCCESS, ADD_RECIPE_FAILURE, FETCH_RECIPE, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE} from './actions';
 
 const initialState = {
     recipes: [],
@@ -44,6 +44,24 @@ const reducer = (state = initialState, action) => {
                 isFetching: false,
                 error: "",
                 recipe: action.payload
+            }
+        case FETCH_RECIPE:
+            return {
+                ...state,
+                isFetching: true,
+                error: '',
+            }
+        case FETCH_RECIPE_SUCCESS:
+            return {
+                ...state, 
+                isFetching: false,
+                recipe: action.payload
+            }
+        case FETCH_RECIPE_FAILURE:
+            return {
+                ...state,
+                error: action.payload,
+                isFetching: false
             }
         
         default: 

@@ -2,14 +2,15 @@ import React from 'react';
 import axios from 'axios';
 import axiosWithAuth from '../utils/axiosWithAuth';
 
-//action types
+
 
 export const START_FETCHING = "START_FETCHING";
 export const FETCH_SUCCESS = "FETCH_SUCCESS";
 export const FETCH_FAILURE = "FETCH_FAULURE";
 export const FETCH_CARD_SUCCESS = "FETCH_CARD_SUCCESS"
 
-// get all recipes in backend
+
+// get all recipes in backend for homepage
 
 export const fetchRecipes = () => {
     
@@ -56,13 +57,12 @@ export const ADD_RECIPE = "ADD_RECIPE";
 export const ADD_RECIPE_SUCCESS= "ADD_RECIPE_SUCCESS";
 export const ADD_RECIPE_FAILURE= "ADD_RECIPE_FAILURE";
 
-export const addRecipe = newRecipe => dispatch => {
+export const addRecipe = (username, newRecipe) => dispatch => {
     dispatch({ type: ADD_RECIPE, payload: newRecipe});
     console.log(newRecipe);
+    console.log(username)
     axiosWithAuth()
-    .post(
-        // post to backend point for adding new recipe
-    )
+    .post(`https://chef-portfolio-backend.herokuapp.com/chefs/${username}`, newRecipe)
     .then(res => {
         dispatch({ type: ADD_RECIPE_SUCCESS});
         console.log(res)
@@ -70,5 +70,26 @@ export const addRecipe = newRecipe => dispatch => {
     .catch(err => {
         dispatch({type: ADD_RECIPE_FAILURE, payload: err.response});
         console.log('error')
+    })
+};
+
+// Get all recipes from a specific chef
+
+export const FETCH_RECIPE = "FETCH_RECIPE";
+export const FETCH_RECIPE_SUCCESS = "FETCH_RECIPE_SUCCESS";
+export const FETCH_RECIPE_FAILURE = "FETCH_RECIPE_FAILURE";
+
+export const getChefRecipes = (username) => dispatch => {
+    dispatch({type: FETCH_RECIPE});
+
+    axiosWithAuth()
+    .get(`https:/chef-portfolio-backend.herokuapp.com//chefs/${username}`)
+    .then(res => {
+        dispatch({type: FETCH_RECIPE_SUCCESS, payload: res.data});
+
+        console.log(res.data)
+    })
+    .catch(err => {
+        dispatch({type: FETCH_RECIPE_FAILURE, payload: err.response})
     });
 };

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
-import RecipeCard from './Recipes/recipe-card';
+import RecipeCard from '../components/Recipes/recipe-card';
 
 
 export default function HomeDashboard() {

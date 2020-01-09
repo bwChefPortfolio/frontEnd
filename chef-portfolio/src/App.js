@@ -8,17 +8,19 @@ import SignUp from './components/Registration/signup';
 import Portfolio from './Pages/Portfolio';
 import ChefDashboard from './components/ChefDashboard';
 import PrivateRoute from './components/PrivateRoute';
+import AddRecipe from './components/Recipes/AddRecipe';
 
 function App() {
   return (
     <div className="App">
       <Header />
       <Switch>
-        <Route exact path='/' component={HomePage} />
+        <Route exact path='/home' component={HomePage} />
         <Route path='/profile' component={Portfolio} />
         <Route path='/login' component={LogIn} />
         <Route path='/signup' component={SignUp} />
         <PrivateRoute path='/chefs' component={ChefDashboard} />
+        <Route path='/addrecipe' component={AddRecipe} />
       </Switch>
     </div>
   );
