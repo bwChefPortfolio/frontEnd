@@ -2,7 +2,7 @@ $phone: 500px;
 $computer: 900px;
 
 .recipe-card {
-    width: 20%;
+    width: 100%;
     margin: 2.5%;
 
     @media (max-width: $phone) {
@@ -37,8 +37,12 @@ $computer: 900px;
 
     .card-title {
         text-align: center;
-        font-size: 1.4rem;
+        font-size: 1.2rem;
         font-weight: bold;
+    }
+
+    .card-subtitle {
+        text-align: center;
     }
     
 }

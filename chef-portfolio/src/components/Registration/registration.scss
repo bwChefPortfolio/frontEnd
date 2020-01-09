@@ -27,6 +27,10 @@ h2 {
         margin-top: 30%;
     }
 
+    ::placeholder {
+        color: white;
+    }
+
     input {
         height: 8%;
         padding: 2%;
@@ -55,12 +59,18 @@ h2 {
         margin-top: 40%;
     }
 
+    ::placeholder {
+        color: white;
+    }
+
     input {
         height: 15%;
         padding: 2%;
         box-sizing: border-box;
         border: 1px solid #ccc;
         background-color:  inherit;
+
+        
 
         &:focus{
             transition: 0.2s;
@@ -73,6 +83,4 @@ h2 {
     margin: 1% 2%;
 }
 
-::placeholder {
-    color: white;
-}
+

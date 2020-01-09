@@ -39,7 +39,6 @@ const RecipeCard = (props) => {
 
     return (
         <div className='recipe-card'>
-
             <Card>
                 <div className='image-container'>
                 <CardImg src={props.image_url} top width='20%' />
@@ -51,7 +50,7 @@ const RecipeCard = (props) => {
                         <Button onClick={toggle}>View Recipe</Button>
                     </div>
                     <Modal isOpen={modal} toggle={toggle}>
-                        <ModalHeader>{props.title}<p>Chef Name</p></ModalHeader>
+                        <ModalHeader>{props.title}<p>{props.meal_type}</p></ModalHeader>
                         <CardImg src={props.image_url} top width='20%'/>
                         <ModalBody>{props.ingredients}</ModalBody>
                         <ModalBody>{props.directions}</ModalBody>
@@ -61,7 +60,6 @@ const RecipeCard = (props) => {
                     </Modal>
                 </CardBody>
             </Card>
-
         </div>
     )
 }
