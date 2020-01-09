@@ -5,9 +5,9 @@ import './recipe-card.scss';
 
 
 
-const RecipeCard = (props) => {
-    const [isOpen, setIsOpen] = useState(false);
-    const toggle = () => setIsOpen(!isOpen);
+//const RecipeCard = (props) => {
+//    const [isOpen, setIsOpen] = useState(false);
+//    const toggle = () => setIsOpen(!isOpen);
 
 //     // const [popoverOpen, setPopoverOpen] = useState(false);
 //     // const toggle = () => setPopoverOpen(!popoverOpen);
@@ -61,6 +61,4 @@ const RecipeCard = (props) => {
         </div>
     )
 }
-
 export default RecipeCard;
-
