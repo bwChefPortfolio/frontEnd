@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button, Collapse, Popover, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import './recipe-card.scss';
+import '../components/Recipes/recipe-card.scss';
 
 const ChefCard = (props) => {
     const [modal, setModal] = useState(false);
@@ -24,6 +24,8 @@ const ChefCard = (props) => {
                             <Button onClick={toggle}>Close</Button>
                         </ModalFooter>
                     </Modal>
+                    <button>Edit</button>
+                    <button>Delete</button>
                 </CardBody>
             </Card>
 

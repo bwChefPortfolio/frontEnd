@@ -9,6 +9,7 @@ import Portfolio from './Pages/Portfolio';
 import ChefDashboard from './components/ChefDashboard';
 import PrivateRoute from './components/PrivateRoute';
 import AddRecipe from './components/Recipes/AddRecipe';
+import ChefCard from './components/ChefCard';
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
         <Route path='/signup' component={SignUp} />
         <PrivateRoute path='/chefs' component={ChefDashboard} />
         <Route path='/addrecipe' component={AddRecipe} />
+        <Route path='/chefcard' component={ChefCard} />
       </Switch>
     </div>
   );
