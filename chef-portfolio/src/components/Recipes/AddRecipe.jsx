@@ -24,6 +24,8 @@ const AddRecipe = props => {
     };
     
     return (
+        <div className='recipe-container'>
+            <img src='https://images.unsplash.com/photo-1551987840-f62d9c74ae78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1176&q=80' />
             <div>
              <form className='recipe-form' onSubmit={handleSubmit}>
 
@@ -42,6 +44,15 @@ const AddRecipe = props => {
                     onChange={handleChanges}>
 
                     </input>
+                </div>
+                <div className='field'>
+                    <input className='title'
+                   
+                    name='title'
+                    type='text'
+                    value={newRecipe.title}
+                    onChange={handleChanges}
+                    />
                 </div>
                 <div className='field'>
                     
@@ -68,6 +79,7 @@ const AddRecipe = props => {
         </form>
        
      
+   </div>
    </div>
 
         

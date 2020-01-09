@@ -5,6 +5,7 @@ textarea, input { outline: none; }
     align-items: center;
     background-color: rgba(196, 196, 196, 0.8);
     margin: 5%;
+    border-radius: 20px;
 
     img {
         width: 500px;
@@ -50,7 +51,7 @@ textarea, input { outline: none; }
     }
 
     .select {
-        width: 42%;
+        width: 49%;
         padding: 0.7%;
         box-sizing: border-box;
     }
