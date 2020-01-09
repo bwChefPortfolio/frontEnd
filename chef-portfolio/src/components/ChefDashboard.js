@@ -11,25 +11,21 @@ const ChefDashboard = props => {
 
     useEffect(() => {
         axiosWithAuth()
-            .get(`https://chef-portfolio-backend.herokuapp.com/chefs/${props.username}`)
+            .get(`https://chef-portfolio-backend.herokuapp.com/chefs/chefa`)
             .then(response => {
                 console.log(response)
+                
             })
             .catch(error => {
                 console.log("The data was not returned", error)
             })
     }, [])
 
-    console.log(props);
-
     return (
-        // <div>
-        //     <h2><span>{props.chefs.first_name}</span><span>{props.chefs.last_name}</span></h2>
-        //     <p>{props.chefs.email}</p>
-        //     <p>{props.chefs.location}</p>
-        // </div>
+        <div>
         <h1>test</h1>
-
+    
+    </div>
     )
 }
 
@@ -42,12 +38,6 @@ const mapStateToProps = state => {
 
 export default connect(mapStateToProps)(ChefDashboard)
 
-// const ChefDashboard = () => {
-//     return (
-//         <div>
-//             <h1>Chef Dashboard</h1>
-//         </div>
-//     )
-// }
 
-// export default ChefDashboard;
+
+    
