@@ -81,9 +81,10 @@ const FormikSignUp = withFormik({
         axios
         .post("https://chef-portfolio-backend.herokuapp.com/auth/register", values)
         .then(res=> {
-            console.log(values)
+            console.log(res)
             setStatus(res.data);
             console.log(res.status);
+            localStorage.setItem("id", res.data.id);
             props.history.push('/auth/login')
         })
         .catch(err => console.log(err.res))
