@@ -63,20 +63,20 @@ const reducer = (state = initialState, action) => {
                 error: action.payload,
                 isFetching: false
             }
-        case DELETE_RECIPE:
-            return{
-                ...state
-            }
-        case DELETE_RECIPE_SUCCESS:
-            return {
-                ...state,
-                recipes: action.payload
-            }
-        case DELETE_RECIPE_FAILURE:
-            return {
-                ...state,
-                error: action.payload
-            }
+        // case DELETE_RECIPE:
+        //     return{
+        //         ...state
+        //     }
+        // case DELETE_RECIPE_SUCCESS:
+        //     return {
+        //         ...state,
+        //         recipes: action.payload
+        //     }
+        // case DELETE_RECIPE_FAILURE:
+        //     return {
+        //         ...state,
+        //         error: action.payload
+        //     }
         
         default: 
         return state;

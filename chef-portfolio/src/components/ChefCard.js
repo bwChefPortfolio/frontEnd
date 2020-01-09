@@ -28,7 +28,7 @@ const ChefCard = (props) => {
                         </ModalFooter>
                     </Modal>
                     <button>Edit</button>
-                    <button onClick={props.dispatch(deleteRecipe(recipe_id))}>Delete</button>
+                    {/* <button onClick={props.dispatch(deleteRecipe(recipe_id))}>Delete</button> */}
                 </CardBody>
             </Card>
 

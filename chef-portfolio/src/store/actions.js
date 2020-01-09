@@ -83,7 +83,7 @@ export const getChefRecipes = (username) => dispatch => {
     dispatch({type: FETCH_CHEF_RECIPE});
 
     axiosWithAuth()
-    .get(`https:/chef-portfolio-backend.herokuapp.com//chefs/`)
+    .get(`https:/chef-portfolio-backend.herokuapp.com//chefs/chefa`)
     .then(res => {
         dispatch({type: FETCH_CHEF_RECIPE_SUCCESS, payload: res.data});
 
@@ -96,20 +96,20 @@ export const getChefRecipes = (username) => dispatch => {
 
 // Delete recipe
 
-export const DELETE_RECIPE = 'DELETE_RECIPE';
-export const DELETE_RECIPE_SUCCESS = 'DELETE_RECIPE_SUCCESS';
-export const DELETE_RECIPE_FAILURE = 'DELETE_RECIPE_FAILURE';
+// export const DELETE_RECIPE = 'DELETE_RECIPE';
+// export const DELETE_RECIPE_SUCCESS = 'DELETE_RECIPE_SUCCESS';
+// export const DELETE_RECIPE_FAILURE = 'DELETE_RECIPE_FAILURE';
 
-export const deleteRecipe = (recipe_id) => dispatch => {
-    console.log(`recipe id: ${recipe_id}`);
-    dispatch({ type: DELETE_RECIPE });
-    AxiosWithAuth()
-        .delete(`https://chef-portfolio-backend.herokuapp.com/chefs/${username}/${recipe_id}`)
-        .then((res) => {
-            dispatch({ type: DELETE_RECIPE_SUCCESS, payload: res.data });
-        })
-        .catch(err => {
-            console.log('error', err)
-            dispatch({ type: DELETE_RECIPE_FAILURE, payload: err });
-        })
-}
+// export const deleteRecipe = (recipe_id) => dispatch => {
+//     console.log(`recipe id: ${recipe_id}`);
+//     dispatch({ type: DELETE_RECIPE });
+//     AxiosWithAuth()
+//         .delete(`https://chef-portfolio-backend.herokuapp.com/chefs/${username}/${recipe_id}`)
+//         .then((res) => {
+//             dispatch({ type: DELETE_RECIPE_SUCCESS, payload: res.data });
+//         })
+//         .catch(err => {
+//             console.log('error', err)
+//             dispatch({ type: DELETE_RECIPE_FAILURE, payload: err });
+//         })
+// }
