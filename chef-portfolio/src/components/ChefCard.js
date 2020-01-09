@@ -1,13 +1,34 @@
 import React, { useState } from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button, Collapse, Popover, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-import {deleteRecipe} from '../store/actions';
-import '../components/Recipes/recipe-card.scss';
-import { connect } from 'react-redux';
+import axiosWithAuth from '../utils/axiosWithAuth';
+import axios from "axios";
 
-const ChefCard = (props) => {
+import '../components/Recipes/recipe-card.scss';
+
+
+const ChefCard = props => {
+    console.log(props)
+    let recipeid = props.id
+    console.log("this is the recipe id",recipeid)
+    const username = localStorage.getItem('username')
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
 
+
+
+    
+    function remover() {
+        axiosWithAuth()
+          .delete(
+            `chefs/${username}/${recipeid}`
+          )
+          .then(res => {
+            console.log(res.data);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+      }
     return (
         <div className='recipe-card'>
 
@@ -27,7 +48,11 @@ const ChefCard = (props) => {
                         </ModalFooter>
                     </Modal>
                     <button>Edit</button>
-                    {/* <button onClick={props.dispatch(deleteRecipe(recipe_id))}>Delete</button> */}
+                    <button
+                     onClick={() => {
+              remover();
+            }}
+            >Delete</button>
                 </CardBody>
             </Card>
 
@@ -36,6 +61,4 @@ const ChefCard = (props) => {
 }
 
 
-export default connect(state=>{
-    return state
-})(ChefCard);
+export default ChefCard;

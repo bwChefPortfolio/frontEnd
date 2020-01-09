@@ -22,7 +22,7 @@ function App() {
         <Route path='/signup' component={SignUp} />
         <PrivateRoute path='/chefdashboard' component={ChefDashboard} />
         <Route path='/addrecipe' component={AddRecipe} />
-        <Route path='/chefcard' component={ChefCard} />
+        <Route path='/chefcard/:id' component={ChefCard} />
       </Switch>
     </div>
   );
