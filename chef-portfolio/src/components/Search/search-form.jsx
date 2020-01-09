@@ -12,7 +12,7 @@ const SearchForm = (props) => {
 
     useEffect(() => {
         const results = props.recipe.filter(recipe => 
-            recipe.title.toLowerCase().includes(query.toLowerCase())    
+            recipe.meal_type.toLowerCase().includes(query.toLowerCase())
         );
         setData(results);
     }, [query])
