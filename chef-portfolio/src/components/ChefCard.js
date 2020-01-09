@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button, Collapse, Popover, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import axios from "axios";
-
+import {Link} from 'react-router-dom';
 import '../components/Recipes/recipe-card.scss';
 
 
@@ -10,8 +10,8 @@ const ChefCard = props => {
     console.log(props)
     let recipeid = props.id
 
-    const [editing, setEditing] = useState(false);
-    const [recipe, setRecipe] = useState({});
+    // const [editing, setEditing] = useState(false);
+    // const [recipe, setRecipe] = useState({});
 
 
     console.log("this is the recipe id",recipeid)
@@ -83,6 +83,27 @@ const ChefCard = props => {
     //     const handleChanges = e => {
     //         setRecipe({...recipe, [e.target.recipe]: e.target.value})
     //     }
+    // const [editing, setEditing] = useState(false);
+    // const [recipe, setRecipe] = useState({});
+    // const editer = e => {
+    //   e.preventDefault();
+    //   console.log("hi");
+    //   setEditing(false);
+    //   axiosWithAuth()
+    //     .put(`/chefs/${recipeid}`,
+    //       recipe
+    //     )
+    //     .then(res => {
+    //       console.log(res.data);
+    //     })
+    //     .catch(err => {
+    //       console.log(err);
+    //     });
+    // };
+  
+
+
+
 
     return (
         <div className='recipe-card'>
@@ -102,7 +123,10 @@ const ChefCard = props => {
                             <Button onClick={toggle}>Close</Button>
                         </ModalFooter>
                     </Modal>
-                    <button>Edit</button>
+                    <Link to={`/edit-recipe/${recipeid}`}>
+                    <button
+                    >Edit</button>
+                    </Link>
                     <button
                      onClick={() => {
               remover();
