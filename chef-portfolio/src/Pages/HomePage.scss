@@ -1,5 +1,14 @@
+$phone: 500px;
+
 body {
     background-image: url(../images/cutting-board-empty.jpg);
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+.recipe-list-container {
+    @media (max-width: $phone) {
+        display: flex;
+        justify-content: center;
+    }
 }
