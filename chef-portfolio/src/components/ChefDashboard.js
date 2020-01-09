@@ -38,16 +38,21 @@ const ChefDashboard = props => {
         <div>
         <h1>test</h1>
        {recipes.map(recipe => {
+           console.log("THIS IS THE RECIPE",recipe)
                 return (
+                    <Link to={`/chefcard/${recipe.id}`}>
                     <ChefCard
-                    key={recipe.id}
+                    id={recipe.id}
                     title={recipe.title}
                     meal_type={recipe.meal_type}
                     image_url={recipe.image_url}
                     ingredients={recipe.ingredients}
                     directions={recipe.directions}
                     chef_id={recipe.chef_id}
-                    />
+                    >
+                    <button>Delete</button>
+                    </ChefCard>
+                    </Link>
                 //     <div key={recipe.id}>
                     
                 //     <p>title={recipe.title}</p>
