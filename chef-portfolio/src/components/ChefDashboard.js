@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {connect} from 'react-redux';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import {getChefRecipes} from '../store/actions';
+import ChefCard from './ChefCard';
 
 
 const ChefDashboard = props => {
@@ -17,7 +18,6 @@ const ChefDashboard = props => {
             .get(`https://chef-portfolio-backend.herokuapp.com/chefs/chefa`)
             .then(response => {
                 console.log(response)
-                //const newChefRecipes=response.data
                 setRecipes(response.data)
                 
             })
@@ -39,15 +39,24 @@ const ChefDashboard = props => {
         <h1>test</h1>
        {recipes.map(recipe => {
                 return (
-                    <div key={recipe.id}>
+                    <ChefCard
+                    key={recipe.id}
+                    title={recipe.title}
+                    meal_type={recipe.meal_type}
+                    image_url={recipe.image_url}
+                    ingredients={recipe.ingredients}
+                    directions={recipe.directions}
+                    chef_id={recipe.chef_id}
+                    />
+                //     <div key={recipe.id}>
                     
-                    <p>title={recipe.title}</p>
-                   <p>meal_type={recipe.meal_type}</p> 
-                   <p>image_url={recipe.image_url}</p> 
-                    <p>ingredients={recipe.ingredients}</p>
-                    <p>directions={recipe.directions}</p>
-                    <p>chef_id={recipe.chef_id}</p>
-                   </div>
+                //     <p>title={recipe.title}</p>
+                //    <p>meal_type={recipe.meal_type}</p> 
+                //    <p>image_url={recipe.image_url}</p> 
+                //     <p>ingredients={recipe.ingredients}</p>
+                //     <p>directions={recipe.directions}</p>
+                //     <p>chef_id={recipe.chef_id}</p>
+                //    </div>
                 )
             })} 
     </div>

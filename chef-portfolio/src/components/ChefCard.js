@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 const ChefCard = (props) => {
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
-    const recipe_id = props.recipe.id
 
     return (
         <div className='recipe-card'>
