@@ -62,7 +62,7 @@ export const addRecipe = (username, newRecipe) => dispatch => {
     console.log(newRecipe);
     console.log(username)
     axiosWithAuth()
-    .post(`https://chef-portfolio-backend.herokuapp.com/chefs/chefa`, newRecipe)
+    .post(`https://chef-portfolio-backend.herokuapp.com/chefs/${username}`, newRecipe)
     .then(res => {
         dispatch({ type: ADD_RECIPE_SUCCESS});
         console.log(res)
@@ -83,7 +83,7 @@ export const getChefRecipes = (username) => dispatch => {
     dispatch({type: FETCH_CHEF_RECIPE});
 
     axiosWithAuth()
-    .get(`https:/chef-portfolio-backend.herokuapp.com//chefs/chefa`)
+    .get(`https:/chef-portfolio-backend.herokuapp.com/chefs/${username}`)
     .then(res => {
         dispatch({type: FETCH_CHEF_RECIPE_SUCCESS, payload: res.data});
 
@@ -94,7 +94,7 @@ export const getChefRecipes = (username) => dispatch => {
     });
 };
 
-// //Delete recipe
+//Delete recipe
 
 // export const DELETE_RECIPE = 'DELETE_RECIPE';
 // export const DELETE_RECIPE_SUCCESS = 'DELETE_RECIPE_SUCCESS';

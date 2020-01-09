@@ -23,7 +23,9 @@ const ChefCard = (props) => {
                         <ModalBody>{props.ingredients}</ModalBody>
                         <ModalBody>{props.directions}</ModalBody>
                         <ModalFooter>
+                            <Button onClick={toggle}>Edit</Button>
                             <Button onClick={toggle}>Close</Button>
+                            
                         </ModalFooter>
                     </Modal>
                     <button>Edit</button>
