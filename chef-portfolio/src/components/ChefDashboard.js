@@ -7,11 +7,9 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 const ChefDashboard = props => {
     console.log(props)
     const userId = localStorage.getItem("id");
-
-
     useEffect(() => {
         axiosWithAuth()
-            .get(`https://chef-portfolio-backend.herokuapp.com/chefs/chefa`)
+            .get(`https://chef-portfolio-backend.herokuapp.com/chefs/chefs`)
             .then(response => {
                 console.log(response)
                 
@@ -20,7 +18,6 @@ const ChefDashboard = props => {
                 console.log("The data was not returned", error)
             })
     }, [])
-
     return (
         <div>
         <h1>test</h1>
@@ -28,16 +25,12 @@ const ChefDashboard = props => {
     </div>
     )
 }
-
 const mapStateToProps = state => {
     return {
         recipes: state.recipes,
         isFetching: state.isFetching
     };
 };
-
 export default connect(mapStateToProps)(ChefDashboard)
 
 
-
-    

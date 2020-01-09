@@ -64,3 +64,4 @@ const RecipeCard = (props) => {
 
 
 export default RecipeCard;
+
