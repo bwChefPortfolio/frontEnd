@@ -49,7 +49,7 @@ const FormikLogIn = withFormik({
                 setStatus(res.data);
                 console.log(res);
                 localStorage.setItem("token", res.data.token);
-                
+                localStorage.setItem("username", res.data.username);
                 props.history.push(`/chefs/${values.username}`)
             })
             .catch(err => console.log(err.response));

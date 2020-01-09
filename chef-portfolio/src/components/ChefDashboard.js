@@ -11,11 +11,11 @@ const ChefDashboard = props => {
 
     const [recipes, setRecipes] = useState([]);
         const username = localStorage.getItem("username");
-
+        // const id = match.params.id
 
     useEffect(() => {
         axiosWithAuth()
-            .get(`https://chef-portfolio-backend.herokuapp.com/chefs/chefa`)
+            .get(`https://chef-portfolio-backend.herokuapp.com/chefs/${username}`)
             .then(response => {
                 console.log(response)
                 setRecipes(response.data)
