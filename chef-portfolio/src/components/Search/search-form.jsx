@@ -5,25 +5,57 @@ import '../Recipes/recipe-list.scss';
 import { CardDeck } from 'reactstrap';
 
 const SearchForm = (props) => {
-    console.log("These are search props", props);
+    // console.log("These are search props", props);
 
     const [query, setQuery] = useState("");
     const [data, setData] = useState([]);
 
+    const[test, setTest] = useState([]);
+    const[searchParams, setSearchParams] = useState("");
+
     useEffect(() => {
-        const results = props.recipe.filter(recipe => 
-            recipe.meal_type.toLowerCase().includes(query.toLowerCase())
-        );
-        setData(results);
+        if (searchParams === 'title') {
+            const results = props.recipe.filter(recipe => 
+                recipe.title.toLowerCase().includes(query.toLowerCase())
+            );
+            setData(results);
+        } else if (searchParams === 'meal_type') {
+            const results = props.recipe.filter(recipe => 
+                recipe.meal_type.toLowerCase().includes(query.toLowerCase())
+            );
+            setData(results);
+        } else if (searchParams === 'ingredients') {
+            const results = props.recipe.filter(recipe => 
+                recipe.ingredients.toLowerCase().includes(query.toLowerCase())
+            );
+            setData(results);
+        }
     }, [query])
 
     const handleChange = event => {
         setQuery(event.target.value);
+        console.log("handle change", query)
     };
+
+    const handleClick = event => {
+        setSearchParams(event.target.value);
+    }
+
+    // console.log("Test", searchParams);
+    // console.log("query", query)
+    console.log("recipe", props.recipe)
+    
 
     return (
         <div>
             <form>
+                <label htmlFor='search_param_dropdown'>Search By </label>
+                <select id='search_param_dropdown' name='search_param_dropdown' onClick={handleClick}>
+                    <option value='none' selected disabled hidden>-Choose an option-</option>
+                    <option value='title'>Title</option>
+                    <option value='meal_type'>Meal Type</option>
+                    <option value='ingredients'>Ingredients</option>
+                </select>
                 <input
                 type='search'
                 name='search'
@@ -33,7 +65,8 @@ const SearchForm = (props) => {
                 />
             </form>
             <div className='rendered-cards'>
-                {data.length > 0 ? data.map(recipe => {
+                {
+                data.length > 0 ? data.map(recipe => {
                     return (
                         <CardDeck>
                             <RecipeCard
@@ -47,7 +80,8 @@ const SearchForm = (props) => {
                             />
                         </CardDeck>
                     )
-                }) : props.recipe.map(recipe => {
+                }) :
+                 props.recipe.map(recipe => {
                     return (
                         <CardDeck>
                             <RecipeCard
@@ -61,10 +95,40 @@ const SearchForm = (props) => {
                             />
                         </CardDeck>
                     )
-                })}
+                }
+                )}
             </div>
         </div>
     )
 }
 
 export default SearchForm;
+
+
+
+// const [query, setQuery] = useState('');
+// const [data, setData] = useState([]);
+
+// const[test, setTest] = useState([]);
+// const[searchParams, setSearchParams] = useState("");
+
+// useEffect(() => {
+//     const results = props.recipe.map(item => 
+//         searchParams === "title" && item.title.toLowerCase().includes(query.toLowerCase()) && setData([...data, item])
+//     );
+//     // setData(results);
+//     console.log("results", results)
+// }, [query])
+
+// const handleChange = event => {
+//     setQuery(event.target.value);
+//     console.log("handle change", query)
+// };
+
+// const handleClick = event => {
+//     setSearchParams(event.target.value);
+// }
+
+// // console.log("Test", searchParams);
+// // console.log("query", query)
+// console.log("recipe", props.recipe)
