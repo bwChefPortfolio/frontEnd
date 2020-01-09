@@ -62,7 +62,7 @@ export const addRecipe = (username, newRecipe) => dispatch => {
     console.log(newRecipe);
     console.log(username)
     axiosWithAuth()
-    .post(`https://chef-portfolio-backend.herokuapp.com/chefs/${username}`, newRecipe)
+    .post(`https://chef-portfolio-backend.herokuapp.com/chefs/chefa`, newRecipe)
     .then(res => {
         dispatch({ type: ADD_RECIPE_SUCCESS});
         console.log(res)
@@ -75,21 +75,41 @@ export const addRecipe = (username, newRecipe) => dispatch => {
 
 // Get all recipes from a specific chef
 
-export const FETCH_RECIPE = "FETCH_RECIPE";
-export const FETCH_RECIPE_SUCCESS = "FETCH_RECIPE_SUCCESS";
-export const FETCH_RECIPE_FAILURE = "FETCH_RECIPE_FAILURE";
+export const FETCH_CHEF_RECIPE = "FETCH_CHEF_RECIPE";
+export const FETCH_CHEF_RECIPE_SUCCESS = "FETCH_CHEF_RECIPE_SUCCESS";
+export const FETCH_CHEF_RECIPE_FAILURE = "FETCH_CHEF_RECIPE_FAILURE";
 
 export const getChefRecipes = (username) => dispatch => {
-    dispatch({type: FETCH_RECIPE});
+    dispatch({type: FETCH_CHEF_RECIPE});
 
     axiosWithAuth()
-    .get(`https:/chef-portfolio-backend.herokuapp.com//chefs/${username}`)
+    .get(`https:/chef-portfolio-backend.herokuapp.com//chefs/`)
     .then(res => {
-        dispatch({type: FETCH_RECIPE_SUCCESS, payload: res.data});
+        dispatch({type: FETCH_CHEF_RECIPE_SUCCESS, payload: res.data});
 
         console.log(res.data)
     })
     .catch(err => {
-        dispatch({type: FETCH_RECIPE_FAILURE, payload: err.response})
+        dispatch({type: FETCH_CHEF_RECIPE_FAILURE, payload: err.response})
     });
 };
+
+// Delete recipe
+
+export const DELETE_RECIPE = 'DELETE_RECIPE';
+export const DELETE_RECIPE_SUCCESS = 'DELETE_RECIPE_SUCCESS';
+export const DELETE_RECIPE_FAILURE = 'DELETE_RECIPE_FAILURE';
+
+export const deleteRecipe = (recipe_id) => dispatch => {
+    console.log(`recipe id: ${recipe_id}`);
+    dispatch({ type: DELETE_RECIPE });
+    AxiosWithAuth()
+        .delete(`https://chef-portfolio-backend.herokuapp.com/chefs/${username}/${recipe_id}`)
+        .then((res) => {
+            dispatch({ type: DELETE_RECIPE_SUCCESS, payload: res.data });
+        })
+        .catch(err => {
+            console.log('error', err)
+            dispatch({ type: DELETE_RECIPE_FAILURE, payload: err });
+        })
+}

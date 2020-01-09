@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import { Card, CardImg, CardBody, CardTitle, CardSubtitle, CardText, Button, Collapse, Popover, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import {deleteRecipe} from '../store/actions';
 import '../components/Recipes/recipe-card.scss';
+import { connect } from 'react-redux';
 
 const ChefCard = (props) => {
     const [modal, setModal] = useState(false);
     const toggle = () => setModal(!modal);
+    const recipe_id = props.recipe.id
 
     return (
         <div className='recipe-card'>
@@ -25,7 +28,7 @@ const ChefCard = (props) => {
                         </ModalFooter>
                     </Modal>
                     <button>Edit</button>
-                    <button>Delete</button>
+                    <button onClick={props.dispatch(deleteRecipe(recipe_id))}>Delete</button>
                 </CardBody>
             </Card>
 
@@ -34,4 +37,6 @@ const ChefCard = (props) => {
 }
 
 
-export default ChefCard;
+export default connect(state=>{
+    return state
+})(ChefCard);
