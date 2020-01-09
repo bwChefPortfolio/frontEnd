@@ -16,11 +16,11 @@ function App() {
     <div className="App">
       <Header />
       <Switch>
-        <Route exact path='/home' component={HomePage} />
+        <Route exact path='/' component={HomePage} />
         <Route path='/profile' component={Portfolio} />
         <Route path='/login' component={LogIn} />
         <Route path='/signup' component={SignUp} />
-        <PrivateRoute path='/chefs' component={ChefDashboard} />
+        <PrivateRoute path='/chefdashboard' component={ChefDashboard} />
         <Route path='/addrecipe' component={AddRecipe} />
         <Route path='/chefcard' component={ChefCard} />
       </Switch>

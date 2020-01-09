@@ -3,6 +3,7 @@ import RecipeCard from './recipe-card';
 import { CardDeck } from 'reactstrap';
 import './recipe-list.scss';
 import axios from 'axios';
+import SearchForm from '../Search/search-form';
 
 const RecipeList = () => {
     const [recipe, setRecipe] = useState([]);
@@ -20,29 +21,27 @@ const RecipeList = () => {
     }, [])
 
     return(
-        <CardDeck>
-            {recipe.map(recipe => {
-                return (
-                    <RecipeCard
-                    key={recipe.id}
-                    title={recipe.title}
-                    meal_type={recipe.meal_type}
-                    image_url={recipe.image_url}
-                    ingredients={recipe.ingredients}
-                    directions={recipe.directions}
-                    chef_id={recipe.chef_id}
-                    />
-                )
-            })}
-            
-            {/* <RecipeCard />
-            <RecipeCard />
-            <RecipeCard />
-            <RecipeCard />
-            <RecipeCard />
-            <RecipeCard />
-            <RecipeCard /> */}
-        </CardDeck>
+        <div>
+            <SearchForm
+            recipe={recipe}
+            />
+            <CardDeck>
+                {recipe.map(recipe => {
+                    return (
+                        // <RecipeCard
+                        // key={recipe.id}
+                        // title={recipe.title}
+                        // meal_type={recipe.meal_type}
+                        // image_url={recipe.image_url}
+                        // ingredients={recipe.ingredients}
+                        // directions={recipe.directions}
+                        // chef_id={recipe.chef_id}
+                        // />
+                        <div></div>
+                    )
+                })}
+            </CardDeck>
+        </div>
     )
 }
 

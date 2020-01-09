@@ -1,3 +1,5 @@
+$phone: 500px;
+
 .registration {
     display: flex;
     flex-direction: column;
@@ -17,10 +19,17 @@ h2 {
     width: 350px;
     justify-content: space-between;
     height: 50%;
-    margin: 5% auto;
+    margin: 10% auto;
     padding: 1% 2%;
     background-color: rgba(155, 136, 128, 0.85);
     
+    @media (max-width: $phone) {
+        margin-top: 30%;
+    }
+
+    ::placeholder {
+        color: white;
+    }
 
     input {
         height: 8%;
@@ -42,9 +51,17 @@ h2 {
     width: 350px;
     justify-content: space-between;
     height: 30%;
-    margin: 5% auto;
+    margin: 15% auto;
     padding: 1% 2%;
     background-color: rgba(155, 136, 128, 0.85);
+
+    @media (max-width: $phone) {
+        margin-top: 40%;
+    }
+
+    ::placeholder {
+        color: white;
+    }
 
     input {
         height: 15%;
@@ -52,6 +69,8 @@ h2 {
         box-sizing: border-box;
         border: 1px solid #ccc;
         background-color:  inherit;
+
+        
 
         &:focus{
             transition: 0.2s;
@@ -64,6 +83,4 @@ h2 {
     margin: 1% 2%;
 }
 
-::placeholder {
-    color: white;
-}
+

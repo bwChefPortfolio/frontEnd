@@ -1,4 +1,4 @@
-import {START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE, ADD_RECIPE, ADD_RECIPE_SUCCESS, ADD_RECIPE_FAILURE, FETCH_RECIPE, FETCH_RECIPE_SUCCESS, FETCH_RECIPE_FAILURE} from './actions';
+import {START_FETCHING, FETCH_SUCCESS, FETCH_FAILURE, ADD_RECIPE, ADD_RECIPE_SUCCESS, ADD_RECIPE_FAILURE, FETCH_CHEF_RECIPE, FETCH_CHEF_RECIPE_SUCCESS, FETCH_CHEF_RECIPE_FAILURE, DELETE_RECIPE, DELETE_RECIPE_SUCCESS, DELETE_RECIPE_FAILURE} from './actions';
 
 const initialState = {
     recipes: [],
@@ -45,24 +45,38 @@ const reducer = (state = initialState, action) => {
                 error: "",
                 recipe: action.payload
             }
-        case FETCH_RECIPE:
+        case FETCH_CHEF_RECIPE:
             return {
                 ...state,
                 isFetching: true,
                 error: '',
             }
-        case FETCH_RECIPE_SUCCESS:
+        case FETCH_CHEF_RECIPE_SUCCESS:
             return {
                 ...state, 
                 isFetching: false,
                 recipe: action.payload
             }
-        case FETCH_RECIPE_FAILURE:
+        case FETCH_CHEF_RECIPE_FAILURE:
             return {
                 ...state,
                 error: action.payload,
                 isFetching: false
             }
+        // case DELETE_RECIPE:
+        //     return{
+        //         ...state
+        //     }
+        // case DELETE_RECIPE_SUCCESS:
+        //     return {
+        //         ...state,
+        //         recipes: action.payload
+        //     }
+        // case DELETE_RECIPE_FAILURE:
+        //     return {
+        //         ...state,
+        //         error: action.payload
+        //     }
         
         default: 
         return state;
