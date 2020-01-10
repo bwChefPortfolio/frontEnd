@@ -15,7 +15,7 @@ const AddRecipe = props => {
     const handleSubmit = e => {
         e.preventDefault();
         props.addRecipe(username, newRecipe);
-        // props.history.push(`/`);
+         props.history.push(`/chefdashboard/`);
     };
     const handleChanges = e => {
         setNewRecipe({...newRecipe, [e.target.name]: e.target.value});
