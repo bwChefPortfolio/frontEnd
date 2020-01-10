@@ -3,6 +3,7 @@ import axiosWithAuth from '../utils/axiosWithAuth';
 
 const EditCard = (props) => {
     let recipeid = props.match.params.id;
+    console.log(props)
  const [recipe, setRecipe] = useState({
     //  title: '',
     //  meal_type: '',
@@ -17,10 +18,11 @@ const EditCard = (props) => {
 
 useEffect(() => {
     axiosWithAuth()
-        .get(`https://chef-portfolio-backend.herokuapp.com/chefs/${username}`, {id:recipeid} )
+        .get(`https://chef-portfolio-backend.herokuapp.com/chefs/${username}`)
         .then(response => {
             console.log(response)
-            setRecipe(response.data[0])
+            //console.log(recipeid)
+            setRecipe(response.data.find(r => r.id === Number(recipeid)))
             
         })
         .catch(error => {
@@ -31,17 +33,19 @@ useEffect(() => {
     const editer = e => {
       e.preventDefault();
       setEditing(recipe)
-     
+      console.log(recipe);
       axiosWithAuth()
-        .put(`https://chef-portfolio-backend.herokuapp.com/chefs/${username}/${recipeid}`, recipe
+        .put(`https://chef-portfolio-backend.herokuapp.com/chefs/${username}/${recipe.id}`, recipe
         )
         .then(res => {
-          console.log("this is the put request",res.data);
+          props.history.push("/chefdashboard")
         })
         .catch(err => {
           console.log(err);
         });
+        
     };
+
 
 const handleChanges = e => {
     setRecipe({ ...recipe, [e.target.name]: e.target.value });

@@ -24,7 +24,7 @@ function App() {
         <PrivateRoute path='/chefdashboard' component={ChefDashboard} />
         <Route path='/addrecipe' component={AddRecipe} />
         <Route path='/chefcard/:id' component={ChefCard} />
-        <Route path='/edit-recipe' component={EditCard} />
+        <Route path='/edit-recipe/:id' component={EditCard} />
       </Switch>
     </div>
   );
