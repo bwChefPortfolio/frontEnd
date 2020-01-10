@@ -10,6 +10,7 @@ import ChefDashboard from './components/ChefDashboard';
 import PrivateRoute from './components/PrivateRoute';
 import AddRecipe from './components/Recipes/AddRecipe';
 import ChefCard from './components/ChefCard';
+import EditCard from './components/EditCard';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <PrivateRoute path='/chefdashboard' component={ChefDashboard} />
         <Route path='/addrecipe' component={AddRecipe} />
         <Route path='/chefcard/:id' component={ChefCard} />
+        <Route path='/edit-recipe/:id' component={EditCard} />
       </Switch>
     </div>
   );

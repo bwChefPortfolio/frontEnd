@@ -75,16 +75,12 @@ const ChefDashboard = props => {
         </div>
     )
 }
-
 const mapStateToProps = state => {
     return {
         recipes: state.recipes,
         isFetching: state.isFetching
     };
 };
-
 export default connect(mapStateToProps)(ChefDashboard)
 
 
-
-    

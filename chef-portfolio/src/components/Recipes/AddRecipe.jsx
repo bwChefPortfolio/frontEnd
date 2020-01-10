@@ -4,7 +4,7 @@ import {addRecipe} from '../../store/actions';
 import './recipe-form.scss';
 
 const AddRecipe = props => {
-    const id = localStorage.getItem('id');
+    const username = localStorage.getItem('username');
     const [newRecipe, setNewRecipe] = useState({
         title: '',
         meal_type: '',
@@ -16,8 +16,8 @@ const AddRecipe = props => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        props.addRecipe('chefa', newRecipe);
-        // props.history.push(`/home`);
+        props.addRecipe(username, newRecipe);
+        // props.history.push(`/`);
     };
     const handleChanges = e => {
         setNewRecipe({...newRecipe, [e.target.name]: e.target.value});
@@ -48,15 +48,6 @@ const AddRecipe = props => {
                         <option value='Snacks'>Snacks</option>
                         <option value='Dessert'>Dessert</option>
                     </select>
-                </div>
-                <div className='field'>
-                    <input className='title'
-                   
-                    name='title'
-                    type='text'
-                    value={newRecipe.title}
-                    onChange={handleChanges}
-                    />
                 </div>
                 <div className='field'>
                     
