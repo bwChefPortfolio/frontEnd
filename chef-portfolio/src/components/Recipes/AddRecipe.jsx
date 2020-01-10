@@ -8,7 +8,7 @@ const AddRecipe = props => {
     const [newRecipe, setNewRecipe] = useState({
         title: '',
         meal_type: '',
-        image_url: 'google.com',
+        image_url: 'https://images.unsplash.com/photo-1551987840-f62d9c74ae78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1176&q=80',
         ingredients: '',
         directions: '',
     });
@@ -17,7 +17,7 @@ const AddRecipe = props => {
     const handleSubmit = e => {
         e.preventDefault();
         props.addRecipe(username, newRecipe);
-        // props.history.push(`/`);
+         props.history.push(`/chefdashboard/`);
     };
     const handleChanges = e => {
         setNewRecipe({...newRecipe, [e.target.name]: e.target.value});

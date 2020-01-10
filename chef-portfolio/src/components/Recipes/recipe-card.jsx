@@ -35,6 +35,7 @@ import './recipe-card.scss';
 
 const RecipeCard = (props) => {
     const [modal, setModal] = useState(false);
+    console.log('this is model state',modal);
     const toggle = () => setModal(!modal);
 
     return (

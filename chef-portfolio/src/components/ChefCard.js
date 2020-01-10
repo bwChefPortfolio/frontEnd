@@ -7,7 +7,7 @@ import '../components/Recipes/recipe-card.scss';
 
 
 const ChefCard = props => {
-    console.log(props)
+    console.log('this is props recipeId',props)
     let recipeid = props.id
 
     // const [editing, setEditing] = useState(false);
