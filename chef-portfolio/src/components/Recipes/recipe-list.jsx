@@ -25,22 +25,6 @@ const RecipeList = () => {
             <SearchForm
             recipe={recipe}
             />
-            <CardDeck>
-                {recipe.map(recipe => {
-                    return (
-                        // <RecipeCard
-                        // key={recipe.id}
-                        // title={recipe.title}
-                        // meal_type={recipe.meal_type}
-                        // image_url={recipe.image_url}
-                        // ingredients={recipe.ingredients}
-                        // directions={recipe.directions}
-                        // chef_id={recipe.chef_id}
-                        // />
-                        <div></div>
-                    )
-                })}
-            </CardDeck>
         </div>
     )
 }

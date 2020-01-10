@@ -4,19 +4,20 @@ textarea, input { outline: none; }
     display: flex;
     align-items: center;
     background-color: rgba(196, 196, 196, 0.8);
-    margin: 5%;
+    margin: 5% auto;
     border-radius: 20px;
+    width: 54%;
 
     img {
         width: 500px;
-        margin: 5%;
+        margin: 6%;
     }
 }
 
 .recipe-form {
     display: flex;
     padding: 2%;
-    width: 85vw;
+    width: 85%;
 
     .labels {
         display: flex;
@@ -29,7 +30,7 @@ textarea, input { outline: none; }
     }
 
     .field {
-        margin: 2.8% 0 8% 2%;
+        margin: 2.8% 0 6% 2%;
         width: 100%;
     }
 
@@ -57,12 +58,13 @@ textarea, input { outline: none; }
     }
 
     button {
-        width: 50%;
-        border: 0;
+        width: 30%;
+        // border: 0;
         padding: 0;
-        background-color: inherit;
-        font-size: 2rem;
-        margin-top: 5%;
+        // background-color: inherit;
+        font-size: 1rem;
+        // margin-top: 5%;
+        margin-left: 2%;
 
         &:hover {
             color: white;
@@ -76,3 +78,18 @@ textarea, input { outline: none; }
     }
 }
 
+img {
+    border-radius: 20px;
+}
+
+h2 {
+    color: #004403;
+    margin-bottom: 10%;
+    font-size: 2rem;
+    margin-left: 1%;
+}
+
+.form {
+    margin-top: 12%;
+    padding-bottom: 7%;
+}

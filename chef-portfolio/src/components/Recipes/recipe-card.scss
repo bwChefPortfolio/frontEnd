@@ -4,7 +4,8 @@ $computer: 900px;
 
 .recipe-card {
     width: 100%;
-    margin: 2.5%;
+    margin: 20% 2% 0;
+    
 
     @media (max-width: $phone) {
         width: 80%;
@@ -15,18 +16,16 @@ $computer: 900px;
 .card {
     width: 100%;
     overflow: hidden;
-    margin: 10% 20%;
 
     @media (max-width: $phone) {
         margin: 12.4%;
     }
-    
 
-    &:hover .middle {
+    &:hover .middle, &:hover .middle-dashboard {
         opacity: 1;
     }
 
-    &:hover img {
+    &:hover .image-container {
         opacity: 0.3;
         transition: 0.5s ease;
     }
@@ -53,13 +52,12 @@ p {
     font-weight: normal;
 }
 
-.image-container {
+.image-container, .image-container-dashboard {
     max-height: 300px;
     overflow: hidden;
 }
 
 .middle {
-
     @media (min-width: $computer) {
     transition: .3s ease;
     opacity: 0;
@@ -70,5 +68,28 @@ p {
     -ms-transform: translate(-50%, -50%)
     }
 }
+
+a {
+    // border: 1px solid red;
+    width: 80%;
+}
+
+.recipe-card-dashboard {
+    width: 100%;
+    margin: 10% 25% 15%;
+}
+
+// .middle-dashboard {
+//     @media (min-width: $computer) {
+//     transition: .3s ease;
+//     opacity: 0;
+//     position: absolute;
+//     top: 34%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     -ms-transform: translate(-50%, -50%)
+//     }
+// }
+
 
 

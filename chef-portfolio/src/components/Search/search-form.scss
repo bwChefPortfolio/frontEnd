@@ -1,0 +1,34 @@
+.search-form {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    display: inline;
+    margin-left: 62.28%;
+    // background-color: white;
+    border-radius: 20px;
+    // height: 5%;
+    // width: 27%;
+
+    label {
+        color: black;
+        width: 7vw;
+        font-size: 1.5rem;
+    }
+
+    select {
+        height: 10%;
+        margin-right: 2%;
+    }
+
+    input {
+        height: 10%;
+        margin-right: 3%;
+    }
+}
+
+span {
+    color: #004403;
+    font-size: 4rem;
+    margin-left: 3%;
+}
+
