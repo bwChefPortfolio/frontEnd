@@ -46,15 +46,6 @@ const AddRecipe = props => {
                     </input>
                 </div>
                 <div className='field'>
-                    <input className='title'
-                   
-                    name='title'
-                    type='text'
-                    value={newRecipe.title}
-                    onChange={handleChanges}
-                    />
-                </div>
-                <div className='field'>
                     
                     <input className='ingredients'
                 
