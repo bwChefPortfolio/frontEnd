@@ -7,7 +7,7 @@ const AddRecipe = props => {
     const [newRecipe, setNewRecipe] = useState({
         title: '',
         meal_type: '',
-        image_url: 'https://images.unsplash.com/photo-1551987840-f62d9c74ae78?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1176&q=80',
+        image_url: 'https://images.unsplash.com/photo-1552255278-580ab2ce246b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=634&q=80',
         ingredients: '',
         directions: '',
     });
