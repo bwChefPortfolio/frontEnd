@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import axiosWithAuth from '../utils/axiosWithAuth';
 import {getChefRecipes} from '../store/actions';
 import ChefCard from './ChefCard';
+import './ChefDashboard.scss';
+import { CardDeck } from 'reactstrap';
 
 
 const ChefDashboard = props => {
@@ -34,42 +36,43 @@ const ChefDashboard = props => {
 
     //  let newRecipes = recipes
     return (
-        
-        <div>
-            
-        <h1>MY PORTFOLIO</h1>
-        <Link to={`/addrecipe`}>
-        <button>Add New Recipe</button>
-        </Link>
-
-       {recipes.map(recipe => {
-           console.log("THIS IS THE RECIPE",recipe)
-                return (
-                    <Link to={`/chefcard/${recipe.id}`}>
-                    <ChefCard
-                    id={recipe.id}
-                    title={recipe.title}
-                    meal_type={recipe.meal_type}
-                    image_url={recipe.image_url}
-                    ingredients={recipe.ingredients}
-                    directions={recipe.directions}
-                    chef_id={recipe.chef_id}
-                    >
-                    <button>Delete</button>
-                    </ChefCard>
-                    </Link>
-                //     <div key={recipe.id}>
-                    
-                //     <p>title={recipe.title}</p>
-                //    <p>meal_type={recipe.meal_type}</p> 
-                //    <p>image_url={recipe.image_url}</p> 
-                //     <p>ingredients={recipe.ingredients}</p>
-                //     <p>directions={recipe.directions}</p>
-                //     <p>chef_id={recipe.chef_id}</p>
-                //    </div>
-                )
-            })} 
-    </div>
+        <div className='dashboard-div'>
+            <h1>MY PORTFOLIO</h1>
+            <Link to={`/addrecipe`}>
+            <button>Add New Recipe</button>
+            </Link>
+            <div className="chef-card">
+                {recipes.map(recipe => {
+                    console.log("THIS IS THE RECIPE",recipe)
+                        return (
+                            <CardDeck className='card-deck-dashboard'>
+                            <Link to={`/chefcard/${recipe.id}`}>
+                                <ChefCard
+                                id={recipe.id}
+                                title={recipe.title}
+                                meal_type={recipe.meal_type}
+                                image_url={recipe.image_url}
+                                ingredients={recipe.ingredients}
+                                directions={recipe.directions}
+                                chef_id={recipe.chef_id}
+                                >
+                                <button>Delete</button>
+                                </ChefCard>
+                            </Link>
+                            </CardDeck>
+                        //     <div key={recipe.id}>
+                        //     <p>title={recipe.title}</p>
+                        //    <p>meal_type={recipe.meal_type}</p> 
+                        //    <p>image_url={recipe.image_url}</p> 
+                        //     <p>ingredients={recipe.ingredients}</p>
+                        //     <p>directions={recipe.directions}</p>
+                        //     <p>chef_id={recipe.chef_id}</p>
+                        //    </div>
+                        )
+                        
+                })} 
+            </div>
+        </div>
     )
 }
 

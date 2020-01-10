@@ -1,6 +1,5 @@
 $phone: 500px;
 
-
 .rendered-cards {
     display: flex;
     flex-wrap: wrap;
@@ -13,6 +12,7 @@ $phone: 500px;
     
         @media (max-width: $phone) {
             justify-content: center;
+            width: 100%;
         }
     }
     

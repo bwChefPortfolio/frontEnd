@@ -8,7 +8,7 @@ const AddRecipe = props => {
     const [newRecipe, setNewRecipe] = useState({
         title: '',
         meal_type: '',
-        image_url: 'google.com',
+        image_url: 'https://images.unsplash.com/photo-1536489885071-87983c3e2859?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60e.com',
         ingredients: '',
         directions: '',
     });
@@ -32,7 +32,6 @@ const AddRecipe = props => {
             <div className='fields'>
                 <div className='field'>
                     <input className='title'
-                   
                     name='title'
                     type='text'
                     value={newRecipe.title}
@@ -40,10 +39,15 @@ const AddRecipe = props => {
                     />
                 </div>
                 <div className='field'>
-                    <input as='select' className='select' name='meal_type' value={newRecipe.meal_type}
+                    <select className='select' name='meal_type' value={newRecipe.meal_type}
                     onChange={handleChanges}>
-
-                    </input>
+                        <option value='none' selected disabled hidden>Choose an option</option>
+                        <option value='Breakfast'>Breakfast</option>
+                        <option value='Lunch'>Lunch</option>
+                        <option value='Dinner'>Dinner</option>
+                        <option value='Snacks'>Snacks</option>
+                        <option value='Dessert'>Dessert</option>
+                    </select>
                 </div>
                 <div className='field'>
                     <input className='title'

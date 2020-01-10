@@ -10,7 +10,7 @@ const SearchForm = (props) => {
     const [query, setQuery] = useState("");
     const [data, setData] = useState([]);
 
-    const[test, setTest] = useState([]);
+    // const[test, setTest] = useState([]);
     const[searchParams, setSearchParams] = useState("");
 
     useEffect(() => {
@@ -34,7 +34,7 @@ const SearchForm = (props) => {
 
     const handleChange = event => {
         setQuery(event.target.value);
-        console.log("handle change", query)
+        // console.log("handle change", query)
     };
 
     const handleClick = event => {
@@ -43,7 +43,7 @@ const SearchForm = (props) => {
 
     // console.log("Test", searchParams);
     // console.log("query", query)
-    console.log("recipe", props.recipe)
+    // console.log("recipe", props.recipe)
     
 
     return (

@@ -1,10 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './header.scss';
+import Logo from '../../images/chef-portlogo.png'
 
 const Header = () => (
     <div className='header'>
-        <Link className='logo' to='/'>Logo Placeholder</Link>
+        
+        <Link className='logo' to='/'><img src={Logo}></img></Link>
         <div className='options'>
             <Link className='option' to='/chefdashboard'>Portfolio</Link>
             <Link className='option' to='/login'>Log In</Link>
