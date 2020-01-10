@@ -64,7 +64,7 @@ export const addRecipe = (username, newRecipe) => dispatch => {
     axiosWithAuth()
     .post(`https://chef-portfolio-backend.herokuapp.com/chefs/${username}`, newRecipe)
     .then(res => {
-        dispatch({ type: ADD_RECIPE_SUCCESS});
+        dispatch({ type: ADD_RECIPE_SUCCESS, payload: res.data});
         console.log(res)
     })
     .catch(err => {
