@@ -78,17 +78,17 @@ a {
     margin: 10% 25% 15%;
 }
 
-.middle-dashboard {
-    @media (min-width: $computer) {
-    transition: .3s ease;
-    opacity: 0;
-    position: absolute;
-    top: 34%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%)
-    }
-}
+// .middle-dashboard {
+//     @media (min-width: $computer) {
+//     transition: .3s ease;
+//     opacity: 0;
+//     position: absolute;
+//     top: 34%;
+//     left: 50%;
+//     transform: translate(-50%, -50%);
+//     -ms-transform: translate(-50%, -50%)
+//     }
+// }
 
 
 

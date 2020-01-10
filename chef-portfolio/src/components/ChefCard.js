@@ -115,18 +115,7 @@ const ChefCard = props => {
                 <CardBody>
                     <CardTitle>{props.title}</CardTitle>
                     <CardSubtitle></CardSubtitle>
-                    <Button onClick={toggle}>View Recipe</Button>
-                    <Modal isOpen={modal} toggle={toggle}>
-                        <ModalHeader>{props.title}<p>Chef Name</p></ModalHeader>
-                        <CardImg src={props.image_url} top width='20%'/>
-                        <ModalBody>{props.ingredients}</ModalBody>
-                        <ModalBody>{props.directions}</ModalBody>
-                        <ModalFooter>
-                            <Button onClick={toggle}>Edit</Button>
-                            <Button onClick={toggle}>Close</Button>
-                            
-                        </ModalFooter>
-                    </Modal>
+                    {/* <Button onClick={toggle}>View Recipe</Button> */}
                     <Link to={`/edit-recipe/${recipeid}`}>
                     <button
                     >Edit</button>

@@ -11,6 +11,7 @@ import PrivateRoute from './components/PrivateRoute';
 import AddRecipe from './components/Recipes/AddRecipe';
 import ChefCard from './components/ChefCard';
 import EditCard from './components/EditCard';
+import RecipeForm from './components/Recipes/recipe-form';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path='/addrecipe' component={AddRecipe} />
         <Route path='/chefcard/:id' component={ChefCard} />
         <Route path='/edit-recipe/:id' component={EditCard} />
+        <Route path='/recipe-form' component={RecipeForm} />
       </Switch>
     </div>
   );
