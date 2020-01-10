@@ -101,21 +101,16 @@ const ChefCard = props => {
     //     });
     // };
   
-
-
-
-
     return (
         <div className='recipe-card-dashboard'>
 
             <Card>
-            <div className='image-container'>
+            <div className='image-container-dashboard'>
               <CardImg src={props.image_url} top width='20%' />
             </div>
                 <CardBody>
                     <CardTitle>{props.title}</CardTitle>
                     <CardSubtitle></CardSubtitle>
-                    {/* <Button onClick={toggle}>View Recipe</Button> */}
                     <Link to={`/edit-recipe/${recipeid}`}>
                     <button
                     >Edit</button>

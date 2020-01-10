@@ -24,7 +24,7 @@ $computer: 900px;
         opacity: 1;
     }
 
-    &:hover img {
+    &:hover .image-container {
         opacity: 0.3;
         transition: 0.5s ease;
     }
@@ -51,7 +51,7 @@ p {
     font-weight: normal;
 }
 
-.image-container {
+.image-container, .image-container-dashboard {
     max-height: 300px;
     overflow: hidden;
 }

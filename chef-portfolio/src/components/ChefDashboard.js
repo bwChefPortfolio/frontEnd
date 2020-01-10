@@ -37,10 +37,12 @@ const ChefDashboard = props => {
     //  let newRecipes = recipes
     return (
         <div className='dashboard-div'>
+            <div className='portfolio-cont'>
             <h1>MY PORTFOLIO</h1>
             <Link to={`/addrecipe`}>
             <button>Add New Recipe</button>
             </Link>
+            </div>
             <div className="chef-card">
                 {recipes.map(recipe => {
                     console.log("THIS IS THE RECIPE",recipe)

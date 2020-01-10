@@ -4,6 +4,8 @@ import '../Recipes/recipe-card.scss';
 import '../Recipes/recipe-list.scss';
 import { CardDeck } from 'reactstrap';
 
+import './search-form.scss';
+
 const SearchForm = (props) => {
     // console.log("These are search props", props);
 
@@ -48,10 +50,12 @@ const SearchForm = (props) => {
 
     return (
         <div>
-            <form>
-                <label htmlFor='search_param_dropdown'>Search By </label>
+            <form >
+                <span>Recipes</span>
+                <div className='search-form'>
+                {/* <label htmlFor='search_param_dropdown'>Search By </label> */}
                 <select id='search_param_dropdown' name='search_param_dropdown' onClick={handleClick}>
-                    <option value='none' selected disabled hidden>-Choose an option-</option>
+                    <option value='none' selected disabled hidden>-Search Recipes By-</option>
                     <option value='title'>Title</option>
                     <option value='meal_type'>Meal Type</option>
                     <option value='ingredients'>Ingredients</option>
@@ -59,10 +63,11 @@ const SearchForm = (props) => {
                 <input
                 type='search'
                 name='search'
-                placeholder='Search Recipes'
+                // placeholder='Search Recipes'
                 value={query}
                 onChange={handleChange}
                 />
+                </div>
             </form>
             <div className='rendered-cards'>
                 {
